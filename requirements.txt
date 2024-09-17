@@ -1,14 +1,7 @@
-import os
-import streamlit as st
-import pandas as pd
+pandas
+numpy
+plotly
+matplotlib
+streamlit
+python-dateutil
 
-# Importation des modules nécessaires
-from import_csv_data import import_csv
-from data_processing import supprimer_colonnes_except_colonne
-from renaming_columns import renommer_colonnes
-from clean_columns import nettoyer_colonne
-from filter_data import filtrer_dataframe
-from convert_data import convertir_colonne
-from mean_calcul import somme_revenus_par_groupes
-from import_multiple_data import import_multiple_csv
-from import_excel_data import import_excel

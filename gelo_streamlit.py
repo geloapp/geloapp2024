@@ -145,16 +145,20 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
         return None
 
 
-import plotly.express as px
-import streamlit as st
-import pandas as pd
-import sys
-import os
-
 # ... (tes autres importations et fonctions)
 
+#def main():
+    #st.title("Analyse des Revenus, Charges et Soldes Mensuels")
 def main():
-    st.title("Analyse des Revenus, Charges et Soldes Mensuels Airbnb et Booking")
+    # Utilisation de Markdown pour personnaliser la taille du titre
+    st.markdown("<h1 style='font-size:24px;'>Analyse des Revenus, Charges et Soldes Mensuels</h1>", unsafe_allow_html=True)
+    
+    # Phrase d'accroche
+    st.markdown(
+        "Découvrez une vue d'ensemble détaillée de vos revenus, charges, et soldes mensuels. "
+        "Cette analyse vous aide à mieux comprendre les fluctuations financières et à optimiser la gestion de vos annonces pour un rendement maximal.",
+        unsafe_allow_html=True
+    )
 
     airbnb_data_rev = process_airbnb_data()
     booking_data_rev = process_booking_data()
@@ -183,13 +187,22 @@ def main():
                 x='mois_annee', 
                 y='Revenus', 
                 color='Titre_annonce', 
-                labels={'mois_annee': 'Mois/Année', 'Revenus': 'Revenus (€)'}, 
-                title='Revenus par Mois et par Annonce',
+                labels={'mois_annee': 'Date', 'Revenus': 'Revenus (€)'}, 
+                title='Mes revenus mensuels',
                 barmode='group',
                 text='Revenus',  # Ajoute les étiquettes de données
-                color_discrete_sequence=px.colors.qualitative.Pastel  # Choix des couleurs pastel
+                color_discrete_sequence=['#FF8C00', '#FFD700']  # Orange foncé et orange clair
+                #color_discrete_sequence=px.colors.qualitative.Pastel  # Choix des couleurs pastel
             )
             fig_revenus.update_traces(texttemplate='%{text:.2s}', textposition='outside')
+
+            # Réduire la taille des labels des axes et des titres
+            fig_revenus.update_layout(
+                xaxis_title_font=dict(size=10),
+                yaxis_title_font=dict(size=10),
+                title_font=dict(size=14),
+                legend_font=dict(size=10)
+            )
 
             # **Créer un histogramme des charges par mois et par annonce**
             fig_charges = px.bar(
@@ -197,27 +210,44 @@ def main():
                 x='mois_annee', 
                 y='Charges', 
                 color='Titre_annonce', 
-                labels={'mois_annee': 'Mois/Année', 'Charges': 'Charges (€)'}, 
-                title='Charges par Mois et par Annonce',
+                labels={'mois_annee': 'Date', 'Charges': 'Charges (€)'}, 
+                title='Mes charges mensuelles',
                 barmode='group',
                 text='Charges',  # Ajoute les étiquettes de données
-                color_discrete_sequence=px.colors.qualitative.Bold  # Choix des couleurs plus intenses
+                color_discrete_sequence=['#FF0000', '#FFA07A']  # Rouge vif et rouge clair
+                #color_discrete_sequence=px.colors.qualitative.Bold  # Choix des couleurs plus intenses
             )
             fig_charges.update_traces(texttemplate='%{text:.2s}', textposition='outside')
-
+            # Réduire la taille des labels des axes et des titres
+            fig_charges.update_layout(
+                xaxis_title_font=dict(size=10),
+                yaxis_title_font=dict(size=10),
+                title_font=dict(size=14),
+                legend_font=dict(size=10)
+            )
             # **Créer un histogramme des soldes mensuels par mois et par annonce**
             fig_soldes = px.bar(
                 final_data, 
                 x='mois_annee', 
                 y='Solde_mensuel', 
                 color='Titre_annonce', 
-                labels={'mois_annee': 'Mois/Année', 'Solde_mensuel': 'Solde Mensuel (€)'}, 
-                title='Solde Mensuel par Mois et par Annonce',
+                labels={'mois_annee': 'Date', 'Solde_mensuel': 'Solde Mensuel (€)'}, 
+                title='Mon solde mensuel',
                 barmode='group',
                 text='Solde_mensuel',  # Ajoute les étiquettes de données
-                color_discrete_sequence=px.colors.qualitative.Prism  # Autre palette de couleurs
+                color_discrete_sequence=['#006400', '#90EE90']  # Vert foncé et vert clair
+                #color_discrete_sequence=['#FF8C00', '#FFD700']  # Orange foncé et orange clair
+                #color_discrete_sequence=px.colors.qualitative.Prism  # Autre palette de couleurs
             )
             fig_soldes.update_traces(texttemplate='%{text:.2s}', textposition='outside')
+
+            # Réduire la taille des labels des axes et des titres
+            fig_soldes.update_layout(
+                xaxis_title_font=dict(size=10),
+                yaxis_title_font=dict(size=10),
+                title_font=dict(size=14),
+                legend_font=dict(size=10)
+            )
 
             # Afficher les graphiques sur la même ligne avec Streamlit columns
             col1, col2, col3 = st.columns(3)
@@ -232,7 +262,7 @@ def main():
                 st.plotly_chart(fig_soldes, use_container_width=True)
 
             # Afficher le tableau en bas de page
-            st.write("Données finales après fusion avec les charges :")
+            st.write("Données :")
             st.dataframe(final_data)
             
         else:
