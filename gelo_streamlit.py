@@ -27,10 +27,8 @@ from package.import_excel_data import import_excel
 
 def process_airbnb_data():
     # Importer les données Airbnb
-    #file1_name = 'reservations.csv'
-    file1_name = 'https://raw.githubusercontent.com/geloapp/geloapp2024/main/dataset/reservations.csv'
-    airbnb_data = pd.read_csv(file1_name)
-    #airbnb_data = import_csv(file1_name)
+    file1_name = 'reservations.csv'
+    airbnb_data = import_csv(file1_name)
 
     if airbnb_data is not None:
         # Traiter les données Airbnb
@@ -121,10 +119,8 @@ def process_charges_data():
 
 def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
     # Importer le fichier de configuration des annonces
-    config1 = 'https://raw.githubusercontent.com/geloapp/geloapp2024/main/dataset/annonce.csv'
-    annonce_data = pd.read_csv(config1)
-    #config1 = 'annonce.csv'
-    #annonce_data = import_csv(config1)
+    config1 = 'annonce.csv'
+    annonce_data = import_csv(config1)
 
     if annonce_data is not None:
         # Créer un dictionnaire de correspondance à partir du fichier CSV
@@ -269,13 +265,10 @@ def main():
             st.write("Données :")
             st.dataframe(final_data)
             
-       # else:
-       #     st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
-   # else:
-    #    st.error("Erreur lors du traitement des données.")
+        else:
+            st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
+    else:
+        st.error("Erreur lors du traitement des données.")
 
 if __name__ == "__main__":
     main()
-
-
-
