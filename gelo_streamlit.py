@@ -139,33 +139,39 @@ def process_charges_data():
 
 def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
     try:
-        # Importer le fichier de configuration des annonces
-        config1 = os.path.join('dataset', 'annonce.csv')
-        annonce_data = import_csv(config1)
+        config1 = os.path.join('dataset', 'annonce.csv')  # Spécification du chemin correct
+        
+        # Essayez d'importer le fichier CSV
+        annonce_data = pd.read_csv(config1, encoding='utf-8')  # Utilisation directe de pandas
 
         if annonce_data is not None:
-            # Créer un dictionnaire de correspondance à partir du fichier CSV
-            correspondance_noms = dict(zip(annonce_data['Nom_original'], annonce_data['Nom_uniformise']))
+            # Vérifiez si les colonnes 'Nom_original' et 'Nom_uniformise' existent
+            if 'Nom_original' in annonce_data.columns and 'Nom_uniformise' in annonce_data.columns:
+                # Créez un dictionnaire de correspondance à partir du fichier CSV
+                correspondance_noms = dict(zip(annonce_data['Nom_original'], annonce_data['Nom_uniformise']))
 
-            # Uniformiser les noms dans df_airbnb en utilisant la correspondance
-            booking_data_rev['Titre_annonce'] = booking_data_rev['Titre_annonce'].replace(correspondance_noms)
+                # Uniformisez les noms dans df_airbnb en utilisant la correspondance
+                booking_data_rev['Titre_annonce'] = booking_data_rev['Titre_annonce'].replace(correspondance_noms)
 
-            # Concaténer les deux DataFrames
-            airbnb_booking_data = pd.concat([airbnb_data_rev, booking_data_rev], ignore_index=True)
+                # Concaténez les deux DataFrames
+                airbnb_booking_data = pd.concat([airbnb_data_rev, booking_data_rev], ignore_index=True)
 
-            # Utiliser la fonction pour faire la somme des revenus
-            airbnb_booking_data_rev = somme_revenus_par_groupes(
-                dataframe=airbnb_booking_data,
-                colonne_titre_annonce="Titre_annonce",
-                colonne_mois_annee="mois_annee",
-                colonne_revenus="Revenus"
-            )
-            return airbnb_booking_data_rev
+                # Utilisez la fonction pour faire la somme des revenus
+                airbnb_booking_data_rev = somme_revenus_par_groupes(
+                    dataframe=airbnb_booking_data,
+                    colonne_titre_annonce="Titre_annonce",
+                    colonne_mois_annee="mois_annee",
+                    colonne_revenus="Revenus"
+                )
+                return airbnb_booking_data_rev
+            else:
+                st.error("Colonnes 'Nom_original' ou 'Nom_uniformise' manquantes dans annonce.csv.")
+                return None
         else:
             st.error("Erreur lors de l'import des données d'annonces.")
             return None
     except Exception as e:
-        st.error(f"Erreur lors de la concaténation des données Airbnb et Booking : {e}")
+        st.error(f"Erreur lors de l'import des données d'annonces : {e}")
         return None
 
 
