@@ -24,9 +24,9 @@ from package.import_excel_data import import_excel
 
 def process_airbnb_data():
     try:
-        # Importer les données Airbnb
+        # Utilisation directe de pandas pour l'import CSV avec encodage
         file1_name = os.path.join('dataset', 'reservations.csv')
-        airbnb_data = import_csv(file1_name, encoding='utf-8')  # Ajout de l'encodage utf-8
+        airbnb_data = pd.read_csv(file1_name, encoding='utf-8')  # Utilisation de pandas pour l'import
 
         if airbnb_data is not None:
             # Traiter les données Airbnb
@@ -54,6 +54,7 @@ def process_airbnb_data():
     except Exception as e:
         st.error(f"Erreur lors de l'import des données Airbnb : {e}")
         return None
+
 
 def process_booking_data():
     try:
@@ -109,12 +110,21 @@ def process_booking_data():
 
 def process_charges_data():
     try:
-        # Importer les fichiers de charges Excel
-        multiple_charge = import_excel(['charge_salaire_cosyappart.xlsx', 'charge_salaire_madoumier.xlsx'], dataset_folder='dataset')
+        # Utiliser pandas directement pour l'import des fichiers Excel avec plusieurs fichiers
+        dataset_folder = 'dataset'
+        file1 = os.path.join(dataset_folder, 'charge_salaire_cosyappart.xlsx')
+        file2 = os.path.join(dataset_folder, 'charge_salaire_madoumier.xlsx')
+
+        # Charger les fichiers Excel
+        charge_cosy = pd.read_excel(file1)
+        charge_madoumier = pd.read_excel(file2)
+
+        # Concaténer les deux fichiers en un seul DataFrame
+        multiple_charge = pd.concat([charge_cosy, charge_madoumier], ignore_index=True)
 
         if multiple_charge is not None:
             # Conversion du format de la colonne mois/année
-            multiple_charge['mois_annee'] = multiple_charge['mois_annee'].dt.strftime('%m/%Y')
+            multiple_charge['mois_annee'] = pd.to_datetime(multiple_charge['mois_annee'], errors='coerce').dt.strftime('%m/%Y')
 
             # Calcul des charges par mois et par annonce
             charges_data_rev = somme_revenus_par_groupes(multiple_charge, 'Titre_annonce', 'mois_annee', 'Charges')
@@ -125,6 +135,7 @@ def process_charges_data():
     except Exception as e:
         st.error(f"Erreur lors de l'import des données de charges : {e}")
         return None
+
 
 def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
     try:
