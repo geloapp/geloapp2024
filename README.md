@@ -1,2 +1,2 @@
 # geloapp2024
-application de gestion locative 
+Bienvenue dans la documentation de l'application GeLo, votre application de gestion locative 
