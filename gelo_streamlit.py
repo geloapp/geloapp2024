@@ -269,10 +269,10 @@ def main():
             st.write("Données :")
             st.dataframe(final_data)
             
-        else:
-            st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
-    else:
-        st.error("Erreur lors du traitement des données.")
+       # else:
+       #     st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
+   # else:
+    #    st.error("Erreur lors du traitement des données.")
 
 if __name__ == "__main__":
     main()
