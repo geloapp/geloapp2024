@@ -121,8 +121,10 @@ def process_charges_data():
 
 def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
     # Importer le fichier de configuration des annonces
-    config1 = 'annonce.csv'
-    annonce_data = import_csv(config1)
+    config1 = 'https://raw.githubusercontent.com/geloapp/geloapp2024/main/dataset/annonce.csv'
+    annonce_data = pd.read_csv(config1)
+    #config1 = 'annonce.csv'
+    #annonce_data = import_csv(config1)
 
     if annonce_data is not None:
         # Créer un dictionnaire de correspondance à partir du fichier CSV
