@@ -28,7 +28,7 @@ from package.import_excel_data import import_excel
 def process_airbnb_data():
     # Importer les données Airbnb
     #file1_name = 'reservations.csv'
-    file1_name = 'https://raw.githubusercontent.com/geloapp/geloapp2024/dataset/reservations.csv'
+    file1_name = 'https://raw.githubusercontent.com/geloapp/geloapp2024/main/dataset/reservations.csv'
     airbnb_data = import_csv(file1_name)
 
     if airbnb_data is not None:
