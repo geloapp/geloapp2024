@@ -29,7 +29,8 @@ def process_airbnb_data():
     # Importer les données Airbnb
     #file1_name = 'reservations.csv'
     file1_name = 'https://raw.githubusercontent.com/geloapp/geloapp2024/main/dataset/reservations.csv'
-    airbnb_data = import_csv(file1_name)
+    airbnb_data = pd.read_csv(file1_name)
+    #airbnb_data = import_csv(file1_name)
 
     if airbnb_data is not None:
         # Traiter les données Airbnb
