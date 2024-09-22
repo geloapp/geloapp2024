@@ -220,7 +220,6 @@ def page1():
 
 
 # --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
-# --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
 def page2():
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables (micro-bic ou réel)</h1>", unsafe_allow_html=True)
     
@@ -255,29 +254,22 @@ def page2():
     # Affichage des résultats sous forme de KPI
     col1, col2, col3 = st.columns(3)
 
-    # Styles pour les KPI
-    kpi_style = "<h3 style='font-size:18px;'>Total des Revenus</h3>"
-    kpi_value_style_revenus = f"<h2 style='color: navy;'>{total_revenus:.2f} €</h2>"
-    kpi_value_style_charges = f"<h2 style='color: red;'>{total_charges:.2f} €</h2>"
-    kpi_value_style_revenu_imposable = ""
-
     with col1:
-        st.markdown(kpi_style, unsafe_allow_html=True)
-        st.markdown(kpi_value_style_revenus, unsafe_allow_html=True)
+        st.markdown("<h3 style='font-size:18px;'>Total des Revenus</h3>", unsafe_allow_html=True)
+        st.markdown(f"<h2 style='color: navy;'>{total_revenus:.2f} €</h2>", unsafe_allow_html=True)
 
     with col2:
         st.markdown("<h3 style='font-size:18px;'>Total des Charges</h3>", unsafe_allow_html=True)
-        st.markdown(kpi_value_style_charges, unsafe_allow_html=True)
+        st.markdown(f"<h2 style='color: red;'>{total_charges:.2f} €</h2>", unsafe_allow_html=True)
 
     with col3:
         st.markdown("<h3 style='font-size:18px;'>Revenu Imposable</h3>", unsafe_allow_html=True)
         if revenu_imposable < 0:
-            kpi_value_style_revenu_imposable = f"<h2 style='color: orange;'>Négatif : {revenu_imposable:.2f} €</h2>"
+            st.markdown(f"<h2 style='color: orange;'>Négatif : {revenu_imposable:.2f} €</h2>", unsafe_allow_html=True)
             st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
         else:
-            kpi_value_style_revenu_imposable = f"<h2 style='color: green;'>{revenu_imposable:.2f} €</h2>"
-        
-        st.markdown(kpi_value_style_revenu_imposable, unsafe_allow_html=True)
+            st.markdown(f"<h2 style='color: green;'>{revenu_imposable:.2f} €</h2>", unsafe_allow_html=True)
+            st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
 
     # Section du formulaire fiscal 2042
     st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
