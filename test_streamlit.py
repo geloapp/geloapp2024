@@ -372,10 +372,73 @@ def page3():
             mime='text/csv',
         )
 
+# --- PAGE 4 : NICE TO KNOW --- #
+def page4():
+    st.markdown("<h1 style='font-size:24px;'>Petit moment de lecture</h1>", unsafe_allow_html=True)
+    
+    st.markdown(
+        """<p>
+        Cette page fournit des informations sur les régimes fiscaux français applicables aux locations saisonnières et non saisonnières, ainsi que les étapes à suivre pour la déclaration d'impôts.
+        </p>""",
+        unsafe_allow_html=True
+    )
+    
+    st.markdown("<h2 style='font-size:20px;'>1. Régimes Fiscaux</h2>", unsafe_allow_html=True)
+    st.markdown(
+        """<p>
+        En France, les revenus générés par la location de biens immobiliers sont généralement soumis à l'impôt sur le revenu. Il existe plusieurs régimes fiscaux qui peuvent s'appliquer selon la nature et le montant des revenus :
+        </p>
+        <ul>
+            <li><strong>Régime Micro-BIC :</strong> Applicable pour les revenus locatifs annuels inférieurs à 72 600 €. Un abattement de 50% est appliqué automatiquement.</li>
+            <li><strong>Régime Réel :</strong> Permet de déduire les charges réelles (travaux, frais d'agence, intérêts d'emprunt, etc.) du revenu locatif. Il est recommandé pour ceux qui ont des dépenses élevées.</li>
+        </ul>""",
+        unsafe_allow_html=True
+    )
+    
+    st.markdown("<h2 style='font-size:20px;'>2. Déclaration d'Impôts</h2>", unsafe_allow_html=True)
+    st.markdown(
+        """<p>
+        Pour déclarer vos revenus locatifs, voici les étapes à suivre :
+        </p>
+        <ol>
+            <li>Rassemblez toutes les informations concernant vos revenus et charges liés à la location.</li>
+            <li>Choisissez le régime fiscal adapté à votre situation.</li>
+            <li>Remplissez le formulaire 2042 pour déclarer vos revenus locatifs. Selon le régime choisi, vous devrez peut-être remplir également le formulaire 2042-C.</li>
+            <li>Soumettez votre déclaration en ligne ou par courrier avant la date limite de dépôt.</li>
+        </ol>""",
+        unsafe_allow_html=True
+    )
+    
+    st.markdown("<h2 style='font-size:20px;'>3. Formulaires Utiles</h2>", unsafe_allow_html=True)
+    st.markdown(
+        """<p>Voici les principaux formulaires que vous pourriez avoir besoin de remplir :</p>
+        <ul>
+            <li><strong>Formulaire 2042 :</strong> Déclaration des revenus. Utilisé pour déclarer vos revenus globaux.</li>
+            <li><strong>Formulaire 2042-C :</strong> Annexes au formulaire 2042. À remplir si vous avez des revenus de location (Micro-BIC ou réel).</li>
+            <li><strong>Formulaire 2044 :</strong> Déclaration des revenus fonciers. Utilisé pour le régime réel, où vous détaillez vos charges.</li>
+            <li><strong>Formulaire 2042-RICI :</strong> Réduction d’impôt pour les investissements locatifs. À utiliser si vous bénéficiez de réductions fiscales.</li>
+        </ul>""",
+        unsafe_allow_html=True
+    )
+    
+    st.markdown("<h2 style='font-size:20px;'>4. Ressources Utiles</h2>", unsafe_allow_html=True)
+    st.markdown(
+        """<p>
+        Pour plus d'informations, vous pouvez consulter :
+        </p>
+        <ul>
+            <li><a href='https://www.impots.gouv.fr/' target='_blank'>Site officiel des impôts en France</a></li>
+            <li><a href='https://www.service-public.fr/' target='_blank'>Service Public - Informations fiscales</a></li>
+            <li><a href='https://www.economie.gouv.fr/' target='_blank'>Ministère de l'Économie - Informations sur la fiscalité</a></li>
+        </ul>""",
+        unsafe_allow_html=True
+    )
+
+
 # --- NAVIGATION --- #
 def main():
     st.sidebar.title("Menu")
-    page = st.sidebar.selectbox("Sélectionnez une page", ["Analyse des Revenus", "Formulaires Fiscaux", "Formulaire Fiscal par Type d'Annonce"])
+    page = st.sidebar.selectbox("Sélectionnez une page", ["Analyse des Revenus", "Formulaires Fiscaux", "Formulaire Fiscal par Type d'Annonce", "Bon à savoir"])
 
     if page == "Analyse des Revenus":
         page1()
@@ -383,6 +446,7 @@ def main():
         page2()
     elif page == "Formulaire Fiscal par Type d'Annonce":
         page3()
-
+    elif page == "Bon à savoir":
+        page4()
 if __name__ == "__main__":
     main()
