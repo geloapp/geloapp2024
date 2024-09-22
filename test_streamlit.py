@@ -258,22 +258,22 @@ def page2():
         if regime_fiscal == 'Micro-BIC':
             abattement = 0.50
             revenu_imposable = total_revenus * (1 - abattement)
-            st.write(f"Total des revenus locatifs : {total_revenus:.2f} €")
-            st.write(f"Revenu imposable après abattement de 50% : {revenu_imposable:.2f} €")
+            st.markdown(f"<p style='color: navy;'>Total des revenus locatifs : {total_revenus:.2f} €</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après abattement de 50% : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
         else:
             revenu_imposable = total_revenus - total_charges
-            st.write(f"Total des revenus locatifs : {total_revenus:.2f} €")
-            st.write(f"Total des charges : {total_charges:.2f} €")
-            st.write(f"Revenu imposable (après déduction des charges) : {revenu_imposable:.2f} €")
+            st.markdown(f"<p style='color: navy;'>Total des revenus locatifs : {total_revenus:.2f} €</p>", unsafe_allow_html=True)
+            st.markdown(f"<p style='color: navy;'>Total des charges : {total_charges:.2f} €</p>", unsafe_allow_html=True)
+            st.markdown(f"<p>Revenu imposable (après déduction des charges) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
 
         # Section du formulaire fiscal 2042 avec réduction de la taille de la police
         st.markdown("<h3 style='font-size:20px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
-        st.write(f"Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €")
+        st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
 
         # Calcul de réduction d'impôt et affichage du revenu final
         reduction_impot = 300
         revenu_imposable_final = revenu_imposable - reduction_impot
-        st.write(f"Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €")
+        st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
 
         # Générer le fichier CSV pour le téléchargement
         df_result = pd.DataFrame({
@@ -283,15 +283,7 @@ def page2():
         })
         
         # Convertir le DataFrame en fichier CSV pour le téléchargement
-        csv = df_result.to_csv(index=False).encode('utf-8')
-
-        # Ajout du bouton de téléchargement
-        st.download_button(
-            label="Télécharger le rapport",
-            data=csv,
-            file_name='resultats_fiscaux.csv',
-            mime='text/csv',
-        )
+       
 
 
 # --- NAVIGATION --- #
