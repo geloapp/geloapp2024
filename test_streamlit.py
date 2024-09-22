@@ -438,13 +438,13 @@ def page4():
 # --- NAVIGATION --- #
 def main():
     st.sidebar.title("Menu")
-    page = st.sidebar.selectbox("Sélectionnez une page", ["Analyse des Revenus", "Formulaires Fiscaux", "Formulaire Fiscal par Type d'Annonce", "Bon à savoir"])
+    page = st.sidebar.selectbox("Sélectionnez une page", ["Analyse des Revenus", "Formulaires Fiscaux", "Formulaire Fiscal par Location", "Bon à savoir"])
 
     if page == "Analyse des Revenus":
         page1()
     elif page == "Formulaires Fiscaux":
         page2()
-    elif page == "Formulaire Fiscal par Type d'Annonce":
+    elif page == "Formulaire Fiscal par Location":
         page3()
     elif page == "Bon à savoir":
         page4()
