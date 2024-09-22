@@ -220,26 +220,82 @@ def page1():
 
 
 # --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
-import streamlit as st
-import pandas as pd
-
+# --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
 def page2():
-    # Titre de la page
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables (micro-bic ou réel)</h1>", unsafe_allow_html=True)
     
     # Description de la page
     st.markdown(
         """<p>
-        Découvrez facilement quel régime fiscal vous convient le mieux et estimez votre revenu imposable pour vos locations saisonnières. Que vous optiez pour le régime <strong>Micro-BIC</strong> ou le <strong>Régime Réel</strong>, notre outil calcule automatiquement votre revenu imposable en tenant compte des spécificités de chaque régime.
-        </p>
-        <p><strong>Régime Micro-BIC :</strong></p>
-        <p>Le régime Micro-BIC est un régime simplifié qui vous permet de bénéficier d’un abattement forfaitaire de 50% sur vos revenus locatifs bruts. Vous n’avez pas besoin de justifier vos dépenses, ce qui simplifie vos démarches. C'est idéal si vos charges réelles sont inférieures à cet abattement.</p>
-        <p><strong>Formule de calcul :</strong></p>
-        <p>Revenu imposable = Revenus locatifs bruts × (1 - 50%)</p>
-        <p><strong>Régime Réel :</strong></p>
-        <p>Le régime Réel permet de déduire l’ensemble de vos charges et frais liés à l’activité locative (charges d’entretien, frais de gestion, impôts locaux, etc.). Ce régime est plus avantageux si vos charges réelles dépassent 50% de vos revenus.</p>
-        <p><strong>Formule de calcul :</strong></p>
-        <p>Revenu imposable = Revenus locatifs bruts - Total des charges</p>""", 
+        Découvrez facilement quel régime fiscal vous convient le mieux et estimez votre revenu imposable pour vos locations saisonnières. 
+        Que vous optiez pour le régime <strong>Micro-BIC</strong> ou le <strong>Régime Réel</strong>, notre outil calcule automatiquement votre revenu imposable en tenant compte des spécificités de chaque régime.
+        </p>""", 
+        unsafe_allow_html=True
+    )
+
+    # Chargement des données CSV
+    df = pd.read_csv('revenus_charges_final.csv')
+
+    if df.empty:
+        st.error("Le fichier CSV est vide ou introuvable.")
+        return
+
+    total_revenus = df['Revenus'].sum()
+    total_charges = df['Charges'].sum()
+
+    # Sélection du régime fiscal
+    regime_fiscal = st.selectbox('Sélectionnez le régime fiscal', ['Micro-BIC', 'Régime Réel'])
+
+    if regime_fiscal == 'Micro-BIC':
+        abattement = 0.50
+        revenu_imposable = total_revenus * (1 - abattement)
+    else:
+        revenu_imposable = total_revenus - total_charges
+
+    # Affichage des résultats sous forme de KPI
+    col1, col2, col3 = st.columns(3)
+
+    # Styles pour les KPI
+    kpi_style = "<h3 style='font-size:18px;'>Total des Revenus</h3>"
+    kpi_value_style_revenus = f"<h2 style='color: navy;'>{total_revenus:.2f} €</h2>"
+    kpi_value_style_charges = f"<h2 style='color: red;'>{total_charges:.2f} €</h2>"
+    kpi_value_style_revenu_imposable = ""
+
+    with col1:
+        st.markdown(kpi_style, unsafe_allow_html=True)
+        st.markdown(kpi_value_style_revenus, unsafe_allow_html=True)
+
+    with col2:
+        st.markdown("<h3 style='font-size:18px;'>Total des Charges</h3>", unsafe_allow_html=True)
+        st.markdown(kpi_value_style_charges, unsafe_allow_html=True)
+
+    with col3:
+        st.markdown("<h3 style='font-size:18px;'>Revenu Imposable</h3>", unsafe_allow_html=True)
+        if revenu_imposable < 0:
+            kpi_value_style_revenu_imposable = f"<h2 style='color: orange;'>Négatif : {revenu_imposable:.2f} €</h2>"
+            st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
+        else:
+            kpi_value_style_revenu_imposable = f"<h2 style='color: green;'>{revenu_imposable:.2f} €</h2>"
+        
+        st.markdown(kpi_value_style_revenu_imposable, unsafe_allow_html=True)
+
+    # Section du formulaire fiscal 2042
+    st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
+    st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
+
+    # Calcul de réduction d'impôt et affichage du revenu final
+    reduction_impot = 300
+    revenu_imposable_final = revenu_imposable - reduction_impot
+    st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
+
+    
+# --- PAGE 3 : FORMULAIRE FISCAL PAR TYPE D'ANNONCE --- #
+def page3():
+    st.markdown("<h1 style='font-size:24px;'>Revenus imposables par location</h1>", unsafe_allow_html=True)
+
+    st.markdown(
+        "Cette page vous permet d'estimer votre revenu imposable en fonction du type d'annonce que vous gérez. Chaque bien locatif peut être soumis à un régime fiscal différent, ce qui influence le calcul de votre revenu imposable. Que vous louiez un appartement, une maison ou une chambre, vous pouvez sélectionner le type d'annonce correspondant pour obtenir des résultats précis et adaptés à votre situation.<br><br>"
+        "En choisissant le type d'annonce, vous pourrez visualiser vos revenus et charges spécifiques, ainsi que le régime fiscal applicable, que ce soit le régime Micro-BIC ou le régime Réel. Cette fonctionnalité vous aide à mieux comprendre les implications fiscales de chaque bien et à optimiser votre gestion locative pour maximiser vos bénéfices.",
         unsafe_allow_html=True
     )
 
@@ -249,8 +305,15 @@ def page2():
     if df.empty:
         st.error("Le fichier CSV est vide ou introuvable.")
     else:
-        total_revenus = df['Revenus'].sum()
-        total_charges = df['Charges'].sum()
+        # Sélection du type d'annonce
+        types_annonce = df['Titre_annonce'].unique()
+        type_annonce_selectionne = st.selectbox('Sélectionnez le type d\'annonce', types_annonce)
+
+        # Filtrage des données pour l'annonce sélectionnée
+        df_annonce = df[df['Titre_annonce'] == type_annonce_selectionne]
+
+        total_revenus = df_annonce['Revenus'].sum()
+        total_charges = df_annonce['Charges'].sum()
 
         # Sélection du régime fiscal
         regime_fiscal = st.selectbox('Sélectionnez le régime fiscal', ['Micro-BIC', 'Régime Réel'])
@@ -258,22 +321,46 @@ def page2():
         if regime_fiscal == 'Micro-BIC':
             abattement = 0.50
             revenu_imposable = total_revenus * (1 - abattement)
-            st.markdown(f"<p style='color: navy;'>Total des revenus locatifs : {total_revenus:.2f} €</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après abattement de 50% : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
         else:
             revenu_imposable = total_revenus - total_charges
-            st.markdown(f"<p style='color: navy;'>Total des revenus locatifs : {total_revenus:.2f} €</p>", unsafe_allow_html=True)
-            st.markdown(f"<p style='color: navy;'>Total des charges : {total_charges:.2f} €</p>", unsafe_allow_html=True)
-            st.markdown(f"<p>Revenu imposable (après déduction des charges) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
 
-        # Section du formulaire fiscal 2042 avec réduction de la taille de la police
-        st.markdown("<h3 style='font-size:20px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
-        st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
+        # Affichage des KPI
+        st.markdown("<h3 style='font-size:22px;'>Résultats Financiers</h3>", unsafe_allow_html=True)
+        col1, col2, col3 = st.columns(3)
 
-        # Calcul de réduction d'impôt et affichage du revenu final
+        kpi_style = "<h3 style='font-size:18px;'>Total des Revenus</h3>"
+        kpi_value_style_revenus = f"<h2 style='color: navy;'>{total_revenus:.2f} €</h2>"
+        kpi_value_style_charges = f"<h2 style='color: red;'>{total_charges:.2f} €</h2>"
+        kpi_value_style_revenu_imposable = f"<h2 style='color: green;'>{revenu_imposable:.2f} €</h2>"
+
+        with col1:
+            st.markdown(kpi_style, unsafe_allow_html=True)
+            st.markdown(kpi_value_style_revenus, unsafe_allow_html=True)
+
+        with col2:
+            st.markdown("<h3 style='font-size:18px;'>Total des Charges</h3>", unsafe_allow_html=True)
+            st.markdown(kpi_value_style_charges, unsafe_allow_html=True)
+
+        with col3:
+            st.markdown("<h3 style='font-size:18px;'>Revenu Imposable</h3>", unsafe_allow_html=True)
+            st.markdown(kpi_value_style_revenu_imposable, unsafe_allow_html=True)
+
+        # Afficher le revenu final après réduction d'impôt
+        st.markdown("<h3 style='font-size:22px;'>Revenu Imposable Final</h3>", unsafe_allow_html=True)
         reduction_impot = 300
         revenu_imposable_final = revenu_imposable - reduction_impot
-        st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
+        st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : <strong>{revenu_imposable_final:.2f} €</strong></p>", unsafe_allow_html=True)
+
+        # Section du formulaire fiscal 2042
+        st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
+        st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
+
+        # Résumé des implications fiscales
+        st.markdown("<h3 style='font-size:16px;'>Résumé des Implications Fiscales</h3>", unsafe_allow_html=True)
+        if regime_fiscal == 'Micro-BIC':
+            st.markdown("Avec le régime **Micro-BIC**, vous bénéficiez d'un abattement de 50% sur vos revenus, ce qui simplifie vos démarches fiscales.")
+        else:
+            st.markdown("Avec le régime **Régime Réel**, vous devez prendre en compte vos charges réelles, ce qui peut entraîner une fiscalité plus favorable selon vos dépenses.")
 
         # Générer le fichier CSV pour le téléchargement
         df_result = pd.DataFrame({
@@ -281,21 +368,29 @@ def page2():
             'Case': ['4BE / 4BB', '2DC', 'Réductions d\'impôt'],
             'Montant': [revenu_imposable, 0, reduction_impot]
         })
-        
-        # Convertir le DataFrame en fichier CSV pour le téléchargement
-       
 
+        # Convertir le DataFrame en fichier CSV pour le téléchargement
+        csv = df_result.to_csv(index=False).encode('utf-8')
+
+        # Ajout du bouton de téléchargement
+        st.download_button(
+            label="Télécharger le rapport",
+            data=csv,
+            file_name='resultats_fiscaux.csv',
+            mime='text/csv',
+        )
 
 # --- NAVIGATION --- #
 def main():
     st.sidebar.title("Menu")
-    page = st.sidebar.selectbox("Sélectionnez une page", ["Analyse des Revenus", "Formulaires Fiscaux"])
+    page = st.sidebar.selectbox("Sélectionnez une page", ["Analyse des Revenus", "Formulaires Fiscaux", "Formulaire Fiscal par Type d'Annonce"])
 
     if page == "Analyse des Revenus":
         page1()
     elif page == "Formulaires Fiscaux":
         page2()
-
+    elif page == "Formulaire Fiscal par Type d'Annonce":
+        page3()
 
 if __name__ == "__main__":
     main()
