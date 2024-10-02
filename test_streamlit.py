@@ -228,6 +228,11 @@ def page1():
 
 # --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
 def page2():
+    # Ajouter le logo de Fifiloc
+    # Importer les données Airbnb
+    logo1 = 'logo_final2_fifiloc.png'
+
+    st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables (micro-bic ou réel)</h1>", unsafe_allow_html=True)
     
     # Description de la page
@@ -290,6 +295,11 @@ def page2():
     
 # --- PAGE 3 : FORMULAIRE FISCAL PAR TYPE D'ANNONCE --- #
 def page3():
+    # Ajouter le logo de Fifiloc
+    # Importer les données Airbnb
+    logo1 = 'logo_final2_fifiloc.png'
+
+    st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables par location</h1>", unsafe_allow_html=True)
 
     st.markdown(
@@ -381,6 +391,11 @@ def page3():
 
 # --- PAGE 4 : NICE TO KNOW --- #
 def page4():
+    # Ajouter le logo de Fifiloc
+    # Importer les données Airbnb
+    logo1 = 'logo_final2_fifiloc.png'
+
+    st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
     st.markdown("<h1 style='font-size:24px;'>Petit moment de lecture</h1>", unsafe_allow_html=True)
     
     st.markdown(
