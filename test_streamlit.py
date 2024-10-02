@@ -151,7 +151,7 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
 def page1():
     # Ajouter le logo de Fifiloc
     # Importer les données Airbnb
-    logo1 = 'logo_final5_fifiloc.png'
+    logo1 = 'logo_final7_fifiloc.png'
 
     st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
 
