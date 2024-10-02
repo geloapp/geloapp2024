@@ -8,6 +8,20 @@ from streamlit.delta_generator import DeltaGenerator
 from streamlit.runtime.scriptrunner import add_script_run_ctx, get_script_run_ctx
 import plotly.express as px  # Ajout de plotly pour le graphique
 
+# Ajoutez le répertoire 'package' au chemin de recherche des modules
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'package')))
+
+# Import des fonctions spécifiques depuis vos modules
+from package.import_csv_data import import_csv
+from package.data_processing import supprimer_colonnes_except_colonne
+from package.renaming_columns import renommer_colonnes
+from package.clean_columns import nettoyer_colonne
+from package.filter_data import filtrer_dataframe
+from package.convert_data import convertir_colonne
+from package.mean_calcul import somme_revenus_par_groupes
+from package.import_multiple_data import import_multiple_csv
+from package.import_excel_data import import_excel
+
 def process_airbnb_data():
     # Importer les données Airbnb
     file1_name = 'reservations.csv'
@@ -127,20 +141,6 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
         st.error("Erreur lors de l'import des données d'annonces.")
         return None
 
-# Ajoutez le répertoire 'package' au chemin de recherche des modules
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'package')))
-
-# Import des fonctions spécifiques depuis vos modules
-from package.import_csv_data import import_csv
-from package.data_processing import supprimer_colonnes_except_colonne
-from package.renaming_columns import renommer_colonnes
-from package.clean_columns import nettoyer_colonne
-from package.filter_data import filtrer_dataframe
-from package.convert_data import convertir_colonne
-from package.mean_calcul import somme_revenus_par_groupes
-from package.import_multiple_data import import_multiple_csv
-from package.import_excel_data import import_excel
-
 
 # --- FONCTIONS --- #
 # Vous pouvez garder ici toutes vos fonctions comme `process_airbnb_data()`, `process_booking_data()`, etc.
@@ -149,6 +149,12 @@ from package.import_excel_data import import_excel
 
 # --- PAGE 1 : ANALYSE DES REVENUS, CHARGES ET SOLDES --- #
 def page1():
+    # Ajouter le logo de Fifiloc
+    # Importer les données Airbnb
+    logo1 = 'logo_final2_fifiloc.png'
+
+    st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
+
     st.markdown("<h1 style='font-size:24px;'>Analyse des Revenus, Charges et Soldes Mensuels</h1>", unsafe_allow_html=True)
     st.markdown(
         "Découvrez une vue d'ensemble détaillée de vos revenus, charges, et soldes mensuels. "
@@ -217,6 +223,7 @@ def page1():
             st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
     else:
         st.error("Erreur lors du traitement des données.")
+
 
 
 # --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
