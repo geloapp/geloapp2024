@@ -230,7 +230,7 @@ def page1():
 def page2():
     # Ajouter le logo de Fifiloc
     # Importer les données Airbnb
-    logo1 = 'new_logofifiloc.png'
+    logo1 = 'new_logofifiloc_#.png'
 
     st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables (micro-bic ou réel)</h1>", unsafe_allow_html=True)
