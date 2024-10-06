@@ -551,26 +551,24 @@ def page1():
             total_solde = final_data_filtre['Solde_mensuel'].sum()
 
             # Mise en page du Dashboard : KPI en première ligne
-            #st.markdown("<h3 style='font-size:22px; font-weight:bold;'>Indicateurs Clés (KPI)</h3>", unsafe_allow_html=True)
-
             # Utiliser les colonnes pour les KPI
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #006400; padding: 10px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} €</p>"
+                    f"<div style='border: 2px solid #006400; border-radius: 10px; padding: 20px; text-align: center;'>"
+                    f"<p style='font-size:18px; color:#006400; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #FF0000; padding: 10px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} €</p>"
+                    f"<div style='border: 2px solid #FF0000; border-radius: 10px; padding: 20px; text-align: center;'>"
+                    f"<p style='font-size:18px; color:#FF0000; font-weight:bold;'>Charges totales: {total_charges:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #FF8C00; padding: 10px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} €</p>"
+                    f"<div style='border: 2px solid #FF8C00; border-radius: 10px; padding: 20px; text-align: center;'>"
+                    f"<p style='font-size:18px; color:#FF8C00; font-weight:bold;'>Solde total: {total_solde:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
@@ -581,8 +579,6 @@ def page1():
                 st.success("Votre solde est positif.")
 
             # Mise en page du Dashboard : Histogrammes en deuxième ligne
-            #st.markdown("<h3 style='font-size:18px;'>Revenus, Charges et Solde mensuels</h3>", unsafe_allow_html=True)
-
             # Utiliser les colonnes pour aligner les histogrammes
             hist_col1, hist_col2, hist_col3 = st.columns(3)
             with hist_col1:
@@ -613,8 +609,6 @@ def page1():
                 revenu_imposable = total_revenus_fiscal - total_charges_fiscal
 
             # Affichage des KPI fiscaux dans des rectangles
-            #st.markdown("<h3 style='font-size:24px; font-weight:bold;'>KPI Fiscaux</h3>", unsafe_allow_html=True)
-
             fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
             with fiscal_col1:
                 st.markdown(
@@ -646,19 +640,11 @@ def page1():
             else:
                 st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
 
-            # Section du formulaire fiscal 2042
-            #st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
-            #st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
-
-            # Calcul de réduction d'impôt et affichage du revenu final
-            #reduction_impot = 300
-            #revenu_imposable_final = revenu_imposable - reduction_impot
-            #st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
-
         else:
             st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
     else:
         st.error("Erreur lors du traitement des données.")
+
 
 
 # --- NAVIGATION --- #
