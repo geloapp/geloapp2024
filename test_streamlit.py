@@ -625,21 +625,21 @@ def page1():
                 st.markdown(
                     f"<div style='border-radius: 10px; background-color: #063b21; padding: 20px; text-align: center;'>"
                     #f"<div style='border-radius: 10px; background-color: #006400; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
+                    f"<p style='font-size:18px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
                     f"<div style='border-radius: 10px; background-color: #a86903; padding: 20px; text-align: center;'>"
                     #f"<div style='border-radius: 10px; background-color: #FF0000; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
+                    f"<p style='font-size:18px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
                     f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; text-align: center;'>"
                     #f"<div style='border-radius: 10px; background-color: #db6635; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
+                    f"<p style='font-size:18px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
