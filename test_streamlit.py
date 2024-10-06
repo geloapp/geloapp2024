@@ -664,7 +664,7 @@ def page1():
 # --- NAVIGATION --- #
 def main():
     st.sidebar.title("Menu")
-    page = st.sidebar.selectbox("Sélectionnez une page", ["Dashboard de synthèse", "Analyse des Revenus", "Formulaires Fiscaux", "Formulaire Fiscal par Location", "Bon à savoir"])
+    page = st.sidebar.selectbox("Sélectionnez une page", ["Bilan financier et fiscal", "Analyse des Revenus", "Formulaires Fiscaux", "Formulaires Fiscaux/type de location", "Bon à savoir"])
 
     if page == "Dashboard de synthèse":
         page1()
