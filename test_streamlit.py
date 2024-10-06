@@ -613,7 +613,7 @@ def page1():
                 revenu_imposable = total_revenus_fiscal - total_charges_fiscal
 
             # Affichage des KPI fiscaux dans des rectangles
-            #st.markdown("<h3 style='font-size:18px; font-weight:bold;'>KPI Fiscaux</h3>", unsafe_allow_html=True)
+            #st.markdown("<h3 style='font-size:24px; font-weight:bold;'>KPI Fiscaux</h3>", unsafe_allow_html=True)
 
             fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
             with fiscal_col1:
