@@ -274,30 +274,30 @@ def page2():
     else:
         revenu_imposable = total_revenus - total_charges
 
-    # Affichage des KPI sous forme de cercles classiques
+    # Affichage des KPI sous forme de cercles agrandis
     kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
 
     with kpi_col1:
         st.markdown(
-            f"<div style='border-radius: 50%; background-color: #0072b1; padding: 50px; height: 160px; width: 160px; text-align: center; margin: auto;'>"
-            f"<h4 style='color: white; margin: 0;'>Total des Revenus</h4>"
-            f"<h3 style='color: white;'>{total_revenus:.2f} €</h3>"
+            f"<div style='border-radius: 50%; background-color: #0072b1; padding: 50px; height: 200px; width: 200px; text-align: center; margin: auto;'>"
+            f"<h4 style='color: white; font-size: 22px; margin: 0;'>Total des Revenus</h4>"
+            f"<h3 style='color: white; font-size: 28px;'>{total_revenus:.2f} €</h3>"
             f"</div>", unsafe_allow_html=True
         )
 
     with kpi_col2:
         st.markdown(
-            f"<div style='border-radius: 50%; background-color: #ff6347; padding: 40px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
-            f"<h4 style='color: white; margin: 0;'>Total des Charges</h4>"
-            f"<h3 style='color: white;'>{total_charges:.2f} €</h3>"
+            f"<div style='border-radius: 50%; background-color: #ff6347; padding: 50px; height: 200px; width: 200px; text-align: center; margin: auto;'>"
+            f"<h4 style='color: white; font-size: 22px; margin: 0;'>Total des Charges</h4>"
+            f"<h3 style='color: white; font-size: 28px;'>{total_charges:.2f} €</h3>"
             f"</div>", unsafe_allow_html=True
         )
 
     with kpi_col3:
         st.markdown(
-            f"<div style='border-radius: 50%; background-color: #32cd32; padding: 40px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
-            f"<h4 style='color: white; margin: 0;'>Revenu Imposable</h4>"
-            f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
+            f"<div style='border-radius: 50%; background-color: #32cd32; padding: 50px; height: 200px; width: 200px; text-align: center; margin: auto;'>"
+            f"<h4 style='color: white; font-size: 22px; margin: 0;'>Revenu Imposable</h4>"
+            f"<h3 style='color: white; font-size: 28px;'>{revenu_imposable:.2f} €</h3>"
             f"</div>", unsafe_allow_html=True
         )
 
@@ -306,6 +306,7 @@ def page2():
         st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
     else:
         st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
+
 
 
     # Section du formulaire fiscal 2042
