@@ -528,7 +528,7 @@ def page4():
                 )
 
                 # Ajouter un espace entre les graphiques circulaires et le texte d'alerte
-            st.markdown("<br><br>", unsafe_allow_html=True)  # Ajout de marges
+            #st.markdown("<br><br>", unsafe_allow_html=True)  # Ajout de marges
 
             # Affichage d'une alerte si le solde est négatif
             if total_solde < 0:
