@@ -469,6 +469,73 @@ def page5():
     )
 
 # --- PAGE 1 BILAN FINANCIER ET FISCAL
+# --- PAGE 5 : NICE TO KNOW --- #
+def page5():
+    # Ajouter le logo de Fifiloc
+    logo1 = 'final_logo_fifiloc_#22.png'
+    st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
+
+    st.markdown("<h1 style='font-size:24px;'>Petit moment de lecture</h1>", unsafe_allow_html=True)
+    
+    st.markdown(
+        """<p>
+        Cette page fournit des informations sur les régimes fiscaux français applicables aux locations saisonnières et non saisonnières, ainsi que les étapes à suivre pour la déclaration d'impôts.
+        </p>""",
+        unsafe_allow_html=True
+    )
+    
+    st.markdown("<h2 style='font-size:20px;'>1. Régimes Fiscaux</h2>", unsafe_allow_html=True)
+    st.markdown(
+        """<p>
+        En France, les revenus générés par la location de biens immobiliers sont généralement soumis à l'impôt sur le revenu. Il existe plusieurs régimes fiscaux qui peuvent s'appliquer selon la nature et le montant des revenus :
+        </p>
+        <ul>
+            <li><strong>Régime Micro-BIC :</strong> Applicable pour les revenus locatifs annuels inférieurs à 72 600 €. Un abattement de 50% est appliqué automatiquement.</li>
+            <li><strong>Régime Réel :</strong> Permet de déduire les charges réelles (travaux, frais d'agence, intérêts d'emprunt, etc.) du revenu locatif. Il est recommandé pour ceux qui ont des dépenses élevées.</li>
+        </ul>""",
+        unsafe_allow_html=True
+    )
+    
+    st.markdown("<h2 style='font-size:20px;'>2. Déclaration d'Impôts</h2>", unsafe_allow_html=True)
+    st.markdown(
+        """<p>
+        Pour déclarer vos revenus locatifs, voici les étapes à suivre :
+        </p>
+        <ol>
+            <li>Rassemblez toutes les informations concernant vos revenus et charges liés à la location.</li>
+            <li>Choisissez le régime fiscal adapté à votre situation.</li>
+            <li>Remplissez le formulaire 2042 pour déclarer vos revenus locatifs. Selon le régime choisi, vous devrez peut-être remplir également le formulaire 2042-C.</li>
+            <li>Soumettez votre déclaration en ligne ou par courrier avant la date limite de dépôt.</li>
+        </ol>""",
+        unsafe_allow_html=True
+    )
+    
+    st.markdown("<h2 style='font-size:20px;'>3. Formulaires Utiles</h2>", unsafe_allow_html=True)
+    st.markdown(
+        """<p>Voici les principaux formulaires que vous pourriez avoir besoin de remplir :</p>
+        <ul>
+            <li><strong>Formulaire 2042 :</strong> Déclaration des revenus. Utilisé pour déclarer vos revenus globaux.</li>
+            <li><strong>Formulaire 2042-C :</strong> Annexes au formulaire 2042. À remplir si vous avez des revenus de location (Micro-BIC ou réel).</li>
+            <li><strong>Formulaire 2044 :</strong> Déclaration des revenus fonciers. Utilisé pour le régime réel, où vous détaillez vos charges.</li>
+            <li><strong>Formulaire 2042-RICI :</strong> Réduction d’impôt pour les investissements locatifs. À utiliser si vous bénéficiez de réductions fiscales.</li>
+        </ul>""",
+        unsafe_allow_html=True
+    )
+    
+    st.markdown("<h2 style='font-size:20px;'>4. Ressources Utiles</h2>", unsafe_allow_html=True)
+    st.markdown(
+        """<p>
+        Pour plus d'informations, vous pouvez consulter :
+        </p>
+        <ul>
+            <li><a href='https://www.impots.gouv.fr/' target='_blank'>Site officiel des impôts en France</a></li>
+            <li><a href='https://www.service-public.fr/' target='_blank'>Service Public - Informations fiscales</a></li>
+            <li><a href='https://www.economie.gouv.fr/' target='_blank'>Ministère de l'Économie - Informations sur la fiscalité</a></li>
+        </ul>""",
+        unsafe_allow_html=True
+    )
+
+# --- PAGE 1 BILAN FINANCIER ET FISCAL
 def page1():
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#22.png'
@@ -557,22 +624,19 @@ def page1():
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #006400; padding: 10px; text-align: center;'>"
-                    #f"<i class='fas fa-sack-dollar' style='font-size: 30px; color: white;'></i><br>"
+                    f"<div style='border-radius: 10px; background-color: #006400; padding: 20px; text-align: center;'>"
                     f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #FF0000; padding: 10px; text-align: center;'>"
-                    #f"<i class='fas fa-file-alt' style='font-size: 30px; color: white;'></i><br>"
+                    f"<div style='border-radius: 10px; background-color: #FF0000; padding: 20px; text-align: center;'>"
                     f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #db6635; padding: 10px; text-align: center;'>"
-                    #f"<i class='fas fa-sack-dollar' style='font-size: 30px; color: white;'></i><br>"
+                    f"<div style='border-radius: 10px; background-color: #db6635; padding: 20px; text-align: center;'>"
                     f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
@@ -612,17 +676,43 @@ def page1():
             else:
                 revenu_imposable = total_revenus_fiscal - total_charges_fiscal
 
-            # Affichage des KPI fiscaux
-            st.markdown("<h2 style='font-size:20px;'>KPI fiscaux</h2>", unsafe_allow_html=True)
+            # Affichage des KPI fiscaux dans des rectangles
+            fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
+            with fiscal_col1:
+                st.markdown(
+                    f"<div style='border-radius: 10px; background-color: #063b21; padding: 20px; height: 150px; text-align: center;'>"
+                    f"<h4 style='color: white;'>Revenus totaux</h4>"
+                    f"<h3 style='color: white;'>{total_revenus_fiscal:.2f} €</h3>"
+                    f"</div>", unsafe_allow_html=True
+                )
 
-            kpi_fiscal_col1, kpi_fiscal_col2 = st.columns(2)
-            with kpi_fiscal_col1:
-                st.metric("Total des revenus imposables (€)", value=f"{revenu_imposable:.2f}")
-            with kpi_fiscal_col2:
-                st.metric("Total des charges (€)", value=f"{total_charges_fiscal:.2f}")
+            with fiscal_col2:
+                st.markdown(
+                    f"<div style='border-radius: 10px; background-color: #a86903; padding: 20px; height: 150px; text-align: center;'>"
+                    f"<h4 style='color: white;'>Charges totales</h4>"
+                    f"<h3 style='color: white;'>{total_charges_fiscal:.2f} €</h3>"
+                    f"</div>", unsafe_allow_html=True
+                )
 
-            st.markdown("<h2 style='font-size:20px;'>Tableau des Revenus et Charges</h2>", unsafe_allow_html=True)
-            st.dataframe(df)
+            with fiscal_col3:
+                st.markdown(
+                    f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; height: 150px; text-align: center;'>"
+                    f"<h4 style='color: white;'>Revenu imposable</h4>"
+                    f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
+                    f"</div>", unsafe_allow_html=True
+                )
+
+            # Affichage du message sur le revenu imposable
+            if revenu_imposable < 0:
+                st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
+            else:
+                st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
+
+        else:
+            st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
+    else:
+        st.error("Erreur lors du traitement des données.")
+
 
             
 
