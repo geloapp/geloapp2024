@@ -56,8 +56,10 @@ def process_booking_data():
     file_names = [
         "Arrivée du 2024-07-01 au 2024-07-31_cosya.csv",
         "Arrivée du 2024-08-01 au 2024-08-31_cosya.csv",
+        "Arrivée du 2024-09-01 au 2024-08-30_cosya.csv",       
         "Arrivée du 2024-07-01 au 2024-07-31_mad.csv",
         "Arrivée du 2024-08-01 au 2024-08-31_mad.csv"
+        "Arrivée du 2024-09-01 au 2024-08-30_mad.csv"
     ]
 
     # Import des données Booking
@@ -147,13 +149,10 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
 # (les fonctions restent inchangées par rapport à votre code original)
 
 
-# --- PAGE 1 : ANALYSE DES REVENUS, CHARGES ET SOLDES --- #
-def page1():
+def page2():
     # Ajouter le logo de Fifiloc
-    # Importer les données Airbnb
     logo1 = 'final_logo_fifiloc_#22.png'
-
-    st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
+    st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
     st.markdown("<h1 style='font-size:24px;'>Analyse des Revenus, Charges et Soldes Mensuels</h1>", unsafe_allow_html=True)
     st.markdown(
@@ -180,44 +179,59 @@ def page1():
             final_data['Solde_mensuel'] = pd.to_numeric(final_data['Solde_mensuel'], errors='coerce')
             final_data = final_data.fillna(0)
 
-            # Créer les graphiques avec Plotly
+            # Ajouter un filtre pour sélectionner une annonce
+            annonces_disponibles = final_data['Titre_annonce'].unique()
+            annonce_selectionnee = st.selectbox("Sélectionnez une annonce", annonces_disponibles)
+
+            # Filtrer les données en fonction de l'annonce sélectionnée
+            final_data_filtre = final_data[final_data['Titre_annonce'] == annonce_selectionnee]
+
+            # Créer les graphiques avec Plotly pour l'annonce filtrée
             fig_revenus = px.bar(
-                final_data, 
+                final_data_filtre, 
                 x='mois_annee', 
                 y='Revenus', 
                 color='Titre_annonce', 
-                title='Mes revenus mensuels',
+                title='Revenus mensuels (€)',
                 barmode='group',
                 text='Revenus',
-                color_discrete_sequence=['#FF8C00', '#FFD700']
+                labels={'Revenus': 'revenus (€)', 'mois_annee': 'période'},
+                color_discrete_sequence=['#006400', '#90EE90']
             )
+            fig_revenus.update_layout(showlegend=False)  # Désactiver la légende
+
             fig_charges = px.bar(
-                final_data, 
+                final_data_filtre, 
                 x='mois_annee', 
                 y='Charges', 
                 color='Titre_annonce', 
-                title='Mes charges mensuelles',
+                title='Charges mensuelles (€)',
                 barmode='group',
                 text='Charges',
+                labels={'Charges': 'charges (€)', 'mois_annee': 'période'},
                 color_discrete_sequence=['#FF0000', '#FFA07A']
             )
+            fig_charges.update_layout(showlegend=False)  # Désactiver la légende
+
             fig_soldes = px.bar(
-                final_data, 
+                final_data_filtre, 
                 x='mois_annee', 
                 y='Solde_mensuel', 
                 color='Titre_annonce', 
-                title='Mon solde mensuel',
+                title='Solde mensuel (€)',
                 barmode='group',
                 text='Solde_mensuel',
-                color_discrete_sequence=['#006400', '#90EE90']
+                labels={'Solde_mensuel': 'solde (€)', 'mois_annee': 'période'},
+                color_discrete_sequence=['#FF8C00', '#FFD700']
             )
+            fig_soldes.update_layout(showlegend=False)  # Désactiver la légende
 
-            # Afficher les graphiques et les données
+            # Afficher les graphiques et les données filtrées
             col1, col2, col3 = st.columns(3)
             col1.plotly_chart(fig_revenus, use_container_width=True)
             col2.plotly_chart(fig_charges, use_container_width=True)
             col3.plotly_chart(fig_soldes, use_container_width=True)
-            st.dataframe(final_data)
+            st.dataframe(final_data_filtre)
 
         else:
             st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
@@ -227,12 +241,11 @@ def page1():
 
 
 # --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
-def page2():
+def page3():
     # Ajouter le logo de Fifiloc
-    # Importer les données Airbnb
     logo1 = 'final_logo_fifiloc_#22.png'
+    st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
-    st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables (micro-bic ou réel)</h1>", unsafe_allow_html=True)
     
     # Description de la page
@@ -294,12 +307,11 @@ def page2():
 
     
 # --- PAGE 3 : FORMULAIRE FISCAL PAR TYPE D'ANNONCE --- #
-def page3():
+def page4():
     # Ajouter le logo de Fifiloc
-    # Importer les données Airbnb
     logo1 = 'final_logo_fifiloc_#22.png'
+    st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
-    st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables par location</h1>", unsafe_allow_html=True)
 
     st.markdown(
@@ -363,6 +375,7 @@ def page3():
         # Section du formulaire fiscal 2042
         st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
         st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
+        
 
         # Résumé des implications fiscales
         st.markdown("<h3 style='font-size:16px;'>Résumé des Implications Fiscales</h3>", unsafe_allow_html=True)
@@ -390,12 +403,11 @@ def page3():
         )
 
 # --- PAGE 4 : NICE TO KNOW --- #
-def page4():
+def page5():
     # Ajouter le logo de Fifiloc
-    # Importer les données Airbnb
     logo1 = 'final_logo_fifiloc_#22.png'
+    st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
-    st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
     st.markdown("<h1 style='font-size:24px;'>Petit moment de lecture</h1>", unsafe_allow_html=True)
     
     st.markdown(
@@ -456,19 +468,212 @@ def page4():
         unsafe_allow_html=True
     )
 
+def page1():
+    # Ajouter le logo de Fifiloc
+    logo1 = 'final_logo_fifiloc_#22.png'
+    st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
+
+    st.markdown("<h1 style='font-size:24px;'>Tableau de mes fluctuations financières et fiscales</h1>", unsafe_allow_html=True)
+
+    # Import des données traitées
+    airbnb_data_rev = process_airbnb_data()
+    booking_data_rev = process_booking_data()
+    charges_data_rev = process_charges_data()
+
+    if airbnb_data_rev is not None and booking_data_rev is not None:
+        airbnb_booking_data_rev = concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev)
+
+        if airbnb_booking_data_rev is not None and charges_data_rev is not None:
+            # Fusionner les données Airbnb, Booking et charges
+            final_data = pd.merge(airbnb_booking_data_rev, charges_data_rev, on=['Titre_annonce', 'mois_annee'], how='inner')
+            final_data['Solde_mensuel'] = final_data['Revenus'] - final_data['Charges']
+
+            # Convertir les colonnes au bon format et remplacer les valeurs NaN par 0
+            final_data['Revenus'] = pd.to_numeric(final_data['Revenus'], errors='coerce')
+            final_data['Charges'] = pd.to_numeric(final_data['Charges'], errors='coerce')
+            final_data['Solde_mensuel'] = pd.to_numeric(final_data['Solde_mensuel'], errors='coerce')
+            final_data = final_data.fillna(0)
+
+            # Ajouter un filtre pour sélectionner une annonce
+            annonces_disponibles = final_data['Titre_annonce'].unique()
+            annonce_selectionnee = st.selectbox("Sélectionnez une annonce", annonces_disponibles)
+
+            # Filtrer les données en fonction de l'annonce sélectionnée
+            final_data_filtre = final_data[final_data['Titre_annonce'] == annonce_selectionnee]
+
+            # Créer les graphiques avec Plotly pour l'annonce filtrée
+            fig_revenus = px.bar(
+                final_data_filtre, 
+                x='mois_annee', 
+                y='Revenus', 
+                title="Revenus mensuels (€)",
+                labels={'Revenus': 'revenus (€)', 'mois_annee': 'période'},
+                color_discrete_sequence=['#006400', '#90EE90'],
+                text='Revenus'
+            )
+            fig_revenus.update_traces(texttemplate='%{text:.2f}', textposition='outside')
+            fig_revenus.add_trace(px.line(final_data_filtre, x='mois_annee', y='Revenus', markers=True).data[0])
+            fig_revenus.data[-1].line.color = '#003366'
+            fig_revenus.update_layout(showlegend=False)
+
+            fig_charges = px.bar(
+                final_data_filtre, 
+                x='mois_annee', 
+                y='Charges', 
+                title="Charges mensuelles (€)",
+                labels={'Charges': 'charges (€)', 'mois_annee': 'période'},
+                color_discrete_sequence=['#FF0000', '#FFA07A'],
+                text='Charges'
+            )
+            fig_charges.update_traces(texttemplate='%{text:.2f}', textposition='outside')
+            fig_charges.add_trace(px.line(final_data_filtre, x='mois_annee', y='Charges', markers=True).data[0])
+            fig_charges.data[-1].line.color = '#003366'
+            fig_charges.update_layout(showlegend=False)
+
+            fig_soldes = px.bar(
+                final_data_filtre, 
+                x='mois_annee', 
+                y='Solde_mensuel', 
+                title="Solde mensuel (€)",
+                labels={'Solde_mensuel': 'solde (€)', 'mois_annee': 'période'},
+                color_discrete_sequence=['#FF8C00', '#FFD700'],
+                text='Solde_mensuel'
+            )
+            fig_soldes.update_traces(texttemplate='%{text:.2f}', textposition='outside')
+            fig_soldes.add_trace(px.line(final_data_filtre, x='mois_annee', y='Solde_mensuel', markers=True).data[0])
+            fig_soldes.data[-1].line.color = '#003366'
+            fig_soldes.update_layout(showlegend=False)
+
+            # Créer des KPI pour le total des revenus, charges et solde
+            total_revenus = final_data_filtre['Revenus'].sum()
+            total_charges = final_data_filtre['Charges'].sum()
+            total_solde = final_data_filtre['Solde_mensuel'].sum()
+
+            # Mise en page du Dashboard : KPI en première ligne
+            st.markdown("<h3 style='font-size:22px; font-weight:bold;'>Indicateurs Clés (KPI)</h3>", unsafe_allow_html=True)
+
+            # Utiliser les colonnes pour les KPI
+            kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
+            with kpi_col1:
+                st.markdown(
+                    f"<div style='border-radius: 50%; background-color: #006400; padding: 10px; text-align: center;'>"
+                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} €</p>"
+                    f"</div>", unsafe_allow_html=True
+                )
+            with kpi_col2:
+                st.markdown(
+                    f"<div style='border-radius: 50%; background-color: #FF0000; padding: 10px; text-align: center;'>"
+                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} €</p>"
+                    f"</div>", unsafe_allow_html=True
+                )
+            with kpi_col3:
+                st.markdown(
+                    f"<div style='border-radius: 50%; background-color: #FF8C00; padding: 10px; text-align: center;'>"
+                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} €</p>"
+                    f"</div>", unsafe_allow_html=True
+                )
+
+            # Affichage d'une alerte si le solde est négatif
+            if total_solde < 0:
+                st.warning("Attention ! Votre solde est négatif.")
+            else:
+                st.success("Votre solde est positif.")
+
+            # Mise en page du Dashboard : Histogrammes en deuxième ligne
+            st.markdown("<h3 style='font-size:20px;'>Revenus, Charges et Solde mensuels</h3>", unsafe_allow_html=True)
+
+            # Utiliser les colonnes pour aligner les histogrammes
+            hist_col1, hist_col2, hist_col3 = st.columns(3)
+            with hist_col1:
+                st.plotly_chart(fig_revenus, use_container_width=True)
+            with hist_col2:
+                st.plotly_chart(fig_charges, use_container_width=True)
+            with hist_col3:
+                st.plotly_chart(fig_soldes, use_container_width=True)
+
+            #### Intégration des KPI fiscaux de la page 2 ####
+            # Chargement des données CSV
+            df = pd.read_csv('revenus_charges_final.csv')
+
+            if df.empty:
+                st.error("Le fichier CSV est vide ou introuvable.")
+                return
+
+            total_revenus_fiscal = df['Revenus'].sum()
+            total_charges_fiscal = df['Charges'].sum()
+
+            # Sélection du régime fiscal
+            regime_fiscal = st.selectbox('Sélectionnez le régime fiscal', ['Micro-BIC', 'Régime Réel'])
+
+            if regime_fiscal == 'Micro-BIC':
+                abattement = 0.50
+                revenu_imposable = total_revenus_fiscal * (1 - abattement)
+            else:
+                revenu_imposable = total_revenus_fiscal - total_charges_fiscal
+
+            # Affichage des KPI fiscaux dans des rectangles
+            st.markdown("<h3 style='font-size:22px; font-weight:bold;'>KPI Fiscaux</h3>", unsafe_allow_html=True)
+
+            fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
+            with fiscal_col1:
+                st.markdown(
+                    f"<div style='border-radius: 10px; background-color: #063b21; padding: 20px; text-align: center;'>"
+                    f"<h4 style='color: white;'>Revenus totaux</h4>"
+                    f"<h3 style='color: white;'>{total_revenus_fiscal:.2f} €</h3>"
+                    f"</div>", unsafe_allow_html=True
+                )
+
+            with fiscal_col2:
+                st.markdown(
+                    f"<div style='border-radius: 10px; background-color: #a86903; padding: 20px; text-align: center;'>"
+                    f"<h4 style='color: white;'>Charges totales</h4>"
+                    f"<h3 style='color: white;'>{total_charges_fiscal:.2f} €</h3>"
+                    f"</div>", unsafe_allow_html=True
+                )
+
+            with fiscal_col3:
+                st.markdown(
+                    f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; text-align: center;'>"
+                    f"<h4 style='color: white;'>Revenu imposable</h4>"
+                    f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
+                    f"</div>", unsafe_allow_html=True
+                )
+
+            # Affichage du message sur le revenu imposable
+            if revenu_imposable < 0:
+                st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
+            else:
+                st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
+
+            # Section du formulaire fiscal 2042
+            st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
+            st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
+
+            # Calcul de réduction d'impôt et affichage du revenu final
+            reduction_impot = 300
+            revenu_imposable_final = revenu_imposable - reduction_impot
+            st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
+
+        else:
+            st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
+    else:
+        st.error("Erreur lors du traitement des données.")
+
 
 # --- NAVIGATION --- #
 def main():
     st.sidebar.title("Menu")
-    page = st.sidebar.selectbox("Sélectionnez une page", ["Analyse des Revenus", "Formulaires Fiscaux", "Formulaire Fiscal par Location", "Bon à savoir"])
+    page = st.sidebar.selectbox("Sélectionnez une page", ["Dashboard de synthèse", "Analyse des Revenus", "Formulaires Fiscaux", "Formulaire Fiscal par Location", "Bon à savoir"])
 
-    if page == "Analyse des Revenus":
+    if page == "Dashboard de synthèse":
         page1()
-    elif page == "Formulaires Fiscaux":
+    elif page == "Analyse des Revenus":
         page2()
-    elif page == "Formulaire Fiscal par Location":
+    elif page == "Formulaires Fiscaux":
         page3()
-    elif page == "Bon à savoir":
+    elif page == "Formulaire Fiscal par Location":
         page4()
+    elif page == "Bon à savoir":
+        page5()
 if __name__ == "__main__":
     main()
