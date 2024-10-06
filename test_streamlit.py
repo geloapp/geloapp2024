@@ -473,7 +473,7 @@ def page1():
     logo1 = 'final_logo_fifiloc_#22.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
-    st.markdown("<h1 style='font-size:24px;'>Tableau de mes fluctuations financières et fiscales</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='font-size:24px;'>Bilan des fluctuations financières et fiscales</h1>", unsafe_allow_html=True)
 
     # Import des données traitées
     airbnb_data_rev = process_airbnb_data()
@@ -550,7 +550,7 @@ def page1():
             total_solde = final_data_filtre['Solde_mensuel'].sum()
 
             # Mise en page du Dashboard : KPI en première ligne
-            st.markdown("<h3 style='font-size:22px; font-weight:bold;'>Indicateurs Clés (KPI)</h3>", unsafe_allow_html=True)
+            #st.markdown("<h3 style='font-size:22px; font-weight:bold;'>Indicateurs Clés (KPI)</h3>", unsafe_allow_html=True)
 
             # Utiliser les colonnes pour les KPI
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
