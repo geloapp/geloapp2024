@@ -568,7 +568,7 @@ def page1():
             final_data_filtre = final_data[final_data['Titre_annonce'] == annonce_selectionnee]
 
             # Calculer le nombre total de mois
-            total_mois = final_data_filtre['mois_annee'].nunique()  # Nombre unique de mois
+            total_mois = final_data_filtre['mois_annee'].nunique()
 
             # Créer les graphiques avec Plotly pour l'annonce filtrée
             fig_revenus = px.bar(
@@ -618,24 +618,33 @@ def page1():
             total_charges = final_data_filtre['Charges'].sum()
             total_solde = final_data_filtre['Solde_mensuel'].sum()
 
-            # Mise en page du Dashboard : KPI en première ligne
+            # Mise en page du Dashboard : KPI en première ligne avec formes modernes
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
+
+            # Hexagone pour les revenus totaux
             with kpi_col1:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #063b21; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:18px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='position: relative; width: 150px; height: 86.6px; background-color: #006400; margin: 20px auto; clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);'>"
+                    f"<p style='color:white; text-align:center; margin-top: 30px; font-size: 16px;'>Revenus totaux</p>"
+                    f"<p style='color:white; text-align:center; font-size: 20px; font-weight: bold;'>{total_revenus:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
+
+            # Badge stylisé pour les charges totales
             with kpi_col2:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #a86903; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:18px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='position: relative; width: 150px; height: 100px; background-color: #FF0000; margin: 20px auto; border-radius: 15px; box-shadow: 0 0 10px rgba(0,0,0,0.5);'>"
+                    f"<p style='color:white; text-align:center; margin-top: 30px; font-size: 16px;'>Charges totales</p>"
+                    f"<p style='color:white; text-align:center; font-size: 20px; font-weight: bold;'>{total_charges:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
+
+            # Design de style octogonal pour le solde total
             with kpi_col3:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:18px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='position: relative; width: 150px; height: 100px; background-color: #db6635; margin: 20px auto; clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);'>"
+                    f"<p style='color:white; text-align:center; margin-top: 30px; font-size: 16px;'>Solde total</p>"
+                    f"<p style='color:white; text-align:center; font-size: 20px; font-weight: bold;'>{total_solde:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
