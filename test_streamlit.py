@@ -502,12 +502,15 @@ def page1():
             # Filtrer les données en fonction de l'annonce sélectionnée
             final_data_filtre = final_data[final_data['Titre_annonce'] == annonce_selectionnee]
 
+            # Calculer le nombre total de mois
+            total_mois = final_data_filtre['mois_annee'].nunique()  # Nombre unique de mois
+
             # Créer les graphiques avec Plotly pour l'annonce filtrée
             fig_revenus = px.bar(
                 final_data_filtre, 
                 x='mois_annee', 
                 y='Revenus', 
-                title="Revenus mensuels (€)",
+                title=f"Revenus mensuels (€) - {total_mois} mois",
                 labels={'Revenus': 'revenus (€)', 'mois_annee': 'période'},
                 color_discrete_sequence=['#006400', '#90EE90'],
                 text='Revenus'
@@ -521,7 +524,7 @@ def page1():
                 final_data_filtre, 
                 x='mois_annee', 
                 y='Charges', 
-                title="Charges mensuelles (€)",
+                title=f"Charges mensuelles (€) - {total_mois} mois",
                 labels={'Charges': 'charges (€)', 'mois_annee': 'période'},
                 color_discrete_sequence=['#FF0000', '#FFA07A'],
                 text='Charges'
@@ -535,7 +538,7 @@ def page1():
                 final_data_filtre, 
                 x='mois_annee', 
                 y='Solde_mensuel', 
-                title="Solde mensuel (€)",
+                title=f"Solde mensuel (€) - {total_mois} mois",
                 labels={'Solde_mensuel': 'solde (€)', 'mois_annee': 'période'},
                 color_discrete_sequence=['#db6635', '#FFD700'],
                 text='Solde_mensuel'
@@ -551,27 +554,23 @@ def page1():
             total_solde = final_data_filtre['Solde_mensuel'].sum()
 
             # Mise en page du Dashboard : KPI en première ligne
-            #st.markdown("<h3 style='font-size:22px; font-weight:bold;'>Indicateurs Clés (KPI)</h3>", unsafe_allow_html=True)
-
-            # Utiliser les colonnes pour les KPI
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
                     f"<div style='border-radius: 50%; background-color: #006400; padding: 10px; text-align: center;'>"
-                    #f"<div style='border-radius: 50%; background-color: #471100; padding: 10px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} €</p>"
+                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
                     f"<div style='border-radius: 50%; background-color: #FF0000; padding: 10px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} €</p>"
+                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
                     f"<div style='border-radius: 50%; background-color: #db6635; padding: 10px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} €</p>"
+                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
@@ -582,9 +581,6 @@ def page1():
                 st.success("Votre solde est positif.")
 
             # Mise en page du Dashboard : Histogrammes en deuxième ligne
-            #st.markdown("<h3 style='font-size:18px;'>Revenus, Charges et Solde mensuels</h3>", unsafe_allow_html=True)
-
-            # Utiliser les colonnes pour aligner les histogrammes
             hist_col1, hist_col2, hist_col3 = st.columns(3)
             with hist_col1:
                 st.plotly_chart(fig_revenus, use_container_width=True)
@@ -614,8 +610,6 @@ def page1():
                 revenu_imposable = total_revenus_fiscal - total_charges_fiscal
 
             # Affichage des KPI fiscaux dans des rectangles
-            #st.markdown("<h3 style='font-size:24px; font-weight:bold;'>KPI Fiscaux</h3>", unsafe_allow_html=True)
-
             fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
             with fiscal_col1:
                 st.markdown(
@@ -635,31 +629,17 @@ def page1():
 
             with fiscal_col3:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; height: 150px; text-align: center;'>"
-                    f"<h4 style='color: white;'>Revenu imposable</h4>"
+                    f"<div style='border-radius: 10px; background-color: #3b0e1c; padding: 20px; height: 150px; text-align: center;'>"
+                    f"<h4 style='color: white;'>Revenu Imposable</h4>"
                     f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
-
-            # Affichage du message sur le revenu imposable
-            if revenu_imposable < 0:
-                st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
-            else:
-                st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
-
-            # Section du formulaire fiscal 2042
-            #st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
-            #st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
-
-            # Calcul de réduction d'impôt et affichage du revenu final
-            #reduction_impot = 300
-            #revenu_imposable_final = revenu_imposable - reduction_impot
-            #st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
 
         else:
             st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
     else:
         st.error("Erreur lors du traitement des données.")
+
 
 
 
