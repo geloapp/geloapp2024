@@ -553,26 +553,26 @@ def page1():
             total_charges = final_data_filtre['Charges'].sum()
             total_solde = final_data_filtre['Solde_mensuel'].sum()
 
-            # Mise en page du Dashboard : KPI en première ligne avec icônes
+            # Mise en page du Dashboard : KPI en première ligne
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
                     f"<div style='border-radius: 10px; background-color: #006400; padding: 20px; text-align: center;'>"
-                    f"<img src='sac_euro.png' style='width: 30px; height: 30px;'/><br>"  # Chemin vers l'icône sac avec euro
+                    f"<i class='fas fa-sack-dollar' style='font-size: 30px; color: white;'></i><br>"
                     f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
                     f"<div style='border-radius: 10px; background-color: #FF0000; padding: 20px; text-align: center;'>"
-                    f"<img src='bloc_note.png' style='width: 30px; height: 30px;'/><br>"  # Chemin vers l'icône bloc-notes
+                    f"<i class='fas fa-file-alt' style='font-size: 30px; color: white;'></i><br>"
                     f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
                     f"<div style='border-radius: 10px; background-color: #db6635; padding: 20px; text-align: center;'>"
-                    f"<img src='sac_euro.png' style='width: 30px; height: 30px;'/><br>"  # Chemin vers l'icône sac avec euro
+                    f"<i class='fas fa-sack-dollar' style='font-size: 30px; color: white;'></i><br>"
                     f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
@@ -612,45 +612,17 @@ def page1():
             else:
                 revenu_imposable = total_revenus_fiscal - total_charges_fiscal
 
-            # Affichage des KPI fiscaux dans des rectangles avec icônes
-            fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
-            with fiscal_col1:
-                st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #063b21; padding: 20px; height: 150px; text-align: center;'>"
-                    f"<img src='sac_euro.png' style='width: 30px; height: 30px;'/><br>"  # Chemin vers l'icône sac avec euro
-                    f"<h4 style='color: white;'>Revenus totaux</h4>"
-                    f"<h3 style='color: white;'>{total_revenus_fiscal:.2f} €</h3>"
-                    f"</div>", unsafe_allow_html=True
-                )
+            # Affichage des KPI fiscaux
+            st.markdown("<h2 style='font-size:20px;'>KPI fiscaux</h2>", unsafe_allow_html=True)
 
-            with fiscal_col2:
-                st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #a86903; padding: 20px; height: 150px; text-align: center;'>"
-                    f"<img src='bloc_note.png' style='width: 30px; height: 30px;'/><br>"  # Chemin vers l'icône bloc-notes
-                    f"<h4 style='color: white;'>Charges totales</h4>"
-                    f"<h3 style='color: white;'>{total_charges_fiscal:.2f} €</h3>"
-                    f"</div>", unsafe_allow_html=True
-                )
+            kpi_fiscal_col1, kpi_fiscal_col2 = st.columns(2)
+            with kpi_fiscal_col1:
+                st.metric("Total des revenus imposables (€)", value=f"{revenu_imposable:.2f}")
+            with kpi_fiscal_col2:
+                st.metric("Total des charges (€)", value=f"{total_charges_fiscal:.2f}")
 
-            with fiscal_col3:
-                st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; height: 150px; text-align: center;'>"
-                    f"<img src='sac_euro.png' style='width: 30px; height: 30px;'/><br>"  # Chemin vers l'icône sac avec euro
-                    f"<h4 style='color: white;'>Revenu imposable</h4>"
-                    f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
-                    f"</div>", unsafe_allow_html=True
-                )
-
-            # Affichage du message sur le revenu imposable
-            if revenu_imposable < 0:
-                st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
-            else:
-                st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
-
-        else:
-            st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
-    else:
-        st.error("Erreur lors du traitement des données.")
+            st.markdown("<h2 style='font-size:20px;'>Tableau des Revenus et Charges</h2>", unsafe_allow_html=True)
+            st.dataframe(df)
 
             
 
