@@ -279,7 +279,7 @@ def page2():
 
     with kpi_col1:
         st.markdown(
-            f"<div style='border-radius: 50%; background-color: #0072b1; padding: 30px; height: 100px; width: 100px; text-align: center; margin: auto;'>"
+            f"<div style='border-radius: 50%; background-color: #0072b1; padding: 50px; height: 160px; width: 160px; text-align: center; margin: auto;'>"
             f"<h4 style='color: white; margin: 0;'>Total des Revenus</h4>"
             f"<h3 style='color: white;'>{total_revenus:.2f} €</h3>"
             f"</div>", unsafe_allow_html=True
