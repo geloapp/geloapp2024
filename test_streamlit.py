@@ -577,7 +577,7 @@ def page4():
 
             with fiscal_col2:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #8f3316; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(10deg) scale(1.1);'>"
+                    f"<div style='border-radius: 50%; background-color: #e03a06; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(10deg) scale(1.1);'>"
                     f"<h4 style='color: white;'>Charges totales</h4>"
                     f"<h3 style='color: white;'>{total_charges_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
@@ -585,7 +585,7 @@ def page4():
 
             with fiscal_col3:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #e03a06; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewY(10deg) scale(1.3);'>"
+                    f"<div style='border-radius: 50%; background-color: #8f3316; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewY(10deg) scale(1.3);'>"
                     f"<h4 style='color: white;'>Revenu imposable</h4>"
                     f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
