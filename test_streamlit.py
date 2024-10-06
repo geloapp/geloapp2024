@@ -240,7 +240,7 @@ def page2():
 
 
 
-# --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
+# --- PAGE 3 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
 def page3():
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#22.png'
@@ -306,7 +306,7 @@ def page3():
     st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
 
     
-# --- PAGE 3 : FORMULAIRE FISCAL PAR TYPE D'ANNONCE --- #
+# --- PAGE 4 : FORMULAIRE FISCAL PAR TYPE D'ANNONCE --- #
 def page4():
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#22.png'
@@ -402,7 +402,7 @@ def page4():
             mime='text/csv',
         )
 
-# --- PAGE 4 : NICE TO KNOW --- #
+# --- PAGE 5 : NICE TO KNOW --- #
 def page5():
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#22.png'
@@ -468,6 +468,7 @@ def page5():
         unsafe_allow_html=True
     )
 
+# --- PAGE 1 BILAN FINANCIER ET FISCAL
 def page1():
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#22.png'
@@ -580,7 +581,7 @@ def page1():
                 st.success("Votre solde est positif.")
 
             # Mise en page du Dashboard : Histogrammes en deuxième ligne
-            #st.markdown("<h3 style='font-size:20px;'>Revenus, Charges et Solde mensuels</h3>", unsafe_allow_html=True)
+            #st.markdown("<h3 style='font-size:18px;'>Revenus, Charges et Solde mensuels</h3>", unsafe_allow_html=True)
 
             # Utiliser les colonnes pour aligner les histogrammes
             hist_col1, hist_col2, hist_col3 = st.columns(3)
