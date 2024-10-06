@@ -551,30 +551,30 @@ def page1():
             total_solde = final_data_filtre['Solde_mensuel'].sum()
 
             # Mise en page du Dashboard : KPI en première ligne avec icônes
-            revenue_icon = "💰"  # Emoji d'argent pour les revenus
-            charges_icon = "🧾"  # Emoji de facture pour les charges
-            balance_icon = "📊"   # Emoji de graphique pour le solde
+            revenue_icon = "€"  # Symbole euro pour les revenus
+            charges_icon = "€"  # Symbole euro pour les charges
+            balance_icon = "$"   # Symbole dollar pour le solde
 
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
                     f"<div style='padding: 20px; text-align: center;'>"
                     f"<h3 style='color: #006400;'>{revenue_icon} Revenus totaux</h3>"
-                    f"<p style='font-size:24px; color: #006400; font-weight:bold;'>{total_revenus:.2f} €</p>"
+                    f"<p style='font-size:18px; color: #006400; font-weight:bold;'>{total_revenus:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
                     f"<div style='padding: 20px; text-align: center;'>"
                     f"<h3 style='color: #FF0000;'>{charges_icon} Charges totales</h3>"
-                    f"<p style='font-size:24px; color: #FF0000; font-weight:bold;'>{total_charges:.2f} €</p>"
+                    f"<p style='font-size:18px; color: #FF0000; font-weight:bold;'>{total_charges:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
                     f"<div style='padding: 20px; text-align: center;'>"
                     f"<h3 style='color: #db6635;'>{balance_icon} Solde total</h3>"
-                    f"<p style='font-size:24px; color: #db6635; font-weight:bold;'>{total_solde:.2f} €</p>"
+                    f"<p style='font-size:18px; color: #db6635; font-weight:bold;'>{total_solde:.2f} $</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
@@ -583,6 +583,9 @@ def page1():
                 st.warning("Attention ! Votre solde est négatif.")
             else:
                 st.success("Votre solde est positif.")
+
+            # Ajout d'un message sur l'évolution des données sur les mois
+            st.markdown("<h3 style='font-size:18px;'>Évolution des données sur les mois</h3>", unsafe_allow_html=True)
 
             # Mise en page du Dashboard : Histogrammes en deuxième ligne
             #st.markdown("<h3 style='font-size:18px;'>Revenus, Charges et Solde mensuels</h3>", unsafe_allow_html=True)
@@ -616,29 +619,29 @@ def page1():
             else:
                 revenu_imposable = total_revenus_fiscal - total_charges_fiscal
 
-            # Affichage des KPI fiscaux dans des rectangles
+            # Affichage des KPI fiscaux dans des rectangles avec taille de police réduite
             fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
             with fiscal_col1:
                 st.markdown(
                     f"<div style='border-radius: 10px; background-color: #063b21; padding: 20px; height: 150px; text-align: center;'>"
-                    f"<h4 style='color: white;'>Revenus totaux</h4>"
-                    f"<h3 style='color: white;'>{total_revenus_fiscal:.2f} €</h3>"
+                    f"<h4 style='color: white; font-size: 14px;'>Revenus totaux</h4>"
+                    f"<h3 style='color: white; font-size: 18px;'>{total_revenus_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
 
             with fiscal_col2:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #a86945; padding: 20px; height: 150px; text-align: center;'>"
-                    f"<h4 style='color: white;'>Charges totales</h4>"
-                    f"<h3 style='color: white;'>{total_charges_fiscal:.2f} €</h3>"
+                    f"<div style='border-radius: 10px; background-color: #7b842c; padding: 20px; height: 150px; text-align: center;'>"
+                    f"<h4 style='color: white; font-size: 14px;'>Charges totales</h4>"
+                    f"<h3 style='color: white; font-size: 18px;'>{total_charges_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
 
             with fiscal_col3:
                 st.markdown(
                     f"<div style='border-radius: 10px; background-color: #7b842c; padding: 20px; height: 150px; text-align: center;'>"
-                    f"<h4 style='color: white;'>Revenu Imposable</h4>"
-                    f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
+                    f"<h4 style='color: white; font-size: 14px;'>Revenu Imposable</h4>"
+                    f"<h3 style='color: white; font-size: 18px;'>{revenu_imposable:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
 
@@ -650,9 +653,7 @@ def page1():
                                   labels={'value': 'Montant (€)', 'variable': 'Type'},
                                   color_discrete_sequence=['#006400', '#FF0000'])
             st.plotly_chart(fig_fiscal)
-
-
-
+            
 
 # --- NAVIGATION --- #
 def main():
