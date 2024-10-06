@@ -618,7 +618,7 @@ def page1():
             fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
             with fiscal_col1:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #063b21; padding: 20px; text-align: center;'>"
+                    f"<div style='border-radius: 10px; background-color: #063b21; padding: 20px; height: 150px; text-align: center;'>"
                     f"<h4 style='color: white;'>Revenus totaux</h4>"
                     f"<h3 style='color: white;'>{total_revenus_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
@@ -626,7 +626,7 @@ def page1():
 
             with fiscal_col2:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #a86903; padding: 20px; text-align: center;'>"
+                    f"<div style='border-radius: 10px; background-color: #a86903; padding: 20px; height: 150px; text-align: center;'>"
                     f"<h4 style='color: white;'>Charges totales</h4>"
                     f"<h3 style='color: white;'>{total_charges_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
@@ -634,7 +634,7 @@ def page1():
 
             with fiscal_col3:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; text-align: center;'>"
+                    f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; height: 150px; text-align: center;'>"
                     f"<h4 style='color: white;'>Revenu imposable</h4>"
                     f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
