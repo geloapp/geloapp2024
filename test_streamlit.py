@@ -502,15 +502,12 @@ def page1():
             # Filtrer les données en fonction de l'annonce sélectionnée
             final_data_filtre = final_data[final_data['Titre_annonce'] == annonce_selectionnee]
 
-            # Calculer le nombre total de mois
-            total_mois = final_data_filtre['mois_annee'].nunique()  # Nombre unique de mois
-
             # Créer les graphiques avec Plotly pour l'annonce filtrée
             fig_revenus = px.bar(
                 final_data_filtre, 
                 x='mois_annee', 
                 y='Revenus', 
-                title=f"Revenus mensuels (€) - {total_mois} mois",
+                title="Revenus mensuels (€)",
                 labels={'Revenus': 'revenus (€)', 'mois_annee': 'période'},
                 color_discrete_sequence=['#006400', '#90EE90'],
                 text='Revenus'
@@ -524,7 +521,7 @@ def page1():
                 final_data_filtre, 
                 x='mois_annee', 
                 y='Charges', 
-                title=f"Charges mensuelles (€) - {total_mois} mois",
+                title="Charges mensuelles (€)",
                 labels={'Charges': 'charges (€)', 'mois_annee': 'période'},
                 color_discrete_sequence=['#FF0000', '#FFA07A'],
                 text='Charges'
@@ -538,7 +535,7 @@ def page1():
                 final_data_filtre, 
                 x='mois_annee', 
                 y='Solde_mensuel', 
-                title=f"Solde mensuel (€) - {total_mois} mois",
+                title="Solde mensuel (€)",
                 labels={'Solde_mensuel': 'solde (€)', 'mois_annee': 'période'},
                 color_discrete_sequence=['#db6635', '#FFD700'],
                 text='Solde_mensuel'
@@ -553,24 +550,31 @@ def page1():
             total_charges = final_data_filtre['Charges'].sum()
             total_solde = final_data_filtre['Solde_mensuel'].sum()
 
-            # Mise en page du Dashboard : KPI en première ligne
+            # Mise en page du Dashboard : KPI en première ligne avec icônes
+            revenue_icon = "💰"  # Emoji d'argent pour les revenus
+            charges_icon = "🧾"  # Emoji de facture pour les charges
+            balance_icon = "📊"   # Emoji de graphique pour le solde
+
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #006400; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='padding: 20px; text-align: center;'>"
+                    f"<h3 style='color: #006400;'>{revenue_icon} Revenus totaux</h3>"
+                    f"<p style='font-size:24px; color: #006400; font-weight:bold;'>{total_revenus:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #FF0000; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='padding: 20px; text-align: center;'>"
+                    f"<h3 style='color: #FF0000;'>{charges_icon} Charges totales</h3>"
+                    f"<p style='font-size:24px; color: #FF0000; font-weight:bold;'>{total_charges:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #db6635; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='padding: 20px; text-align: center;'>"
+                    f"<h3 style='color: #db6635;'>{balance_icon} Solde total</h3>"
+                    f"<p style='font-size:24px; color: #db6635; font-weight:bold;'>{total_solde:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
@@ -581,6 +585,9 @@ def page1():
                 st.success("Votre solde est positif.")
 
             # Mise en page du Dashboard : Histogrammes en deuxième ligne
+            #st.markdown("<h3 style='font-size:18px;'>Revenus, Charges et Solde mensuels</h3>", unsafe_allow_html=True)
+
+            # Utiliser les colonnes pour aligner les histogrammes
             hist_col1, hist_col2, hist_col3 = st.columns(3)
             with hist_col1:
                 st.plotly_chart(fig_revenus, use_container_width=True)
@@ -621,7 +628,7 @@ def page1():
 
             with fiscal_col2:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #a86903; padding: 20px; height: 150px; text-align: center;'>"
+                    f"<div style='border-radius: 10px; background-color: #a86945; padding: 20px; height: 150px; text-align: center;'>"
                     f"<h4 style='color: white;'>Charges totales</h4>"
                     f"<h3 style='color: white;'>{total_charges_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
@@ -629,22 +636,20 @@ def page1():
 
             with fiscal_col3:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; height: 150px; text-align: center;'>"
-                    f"<h4 style='color: white;'>Revenu imposable</h4>"
+                    f"<div style='border-radius: 10px; background-color: #7b842c; padding: 20px; height: 150px; text-align: center;'>"
+                    f"<h4 style='color: white;'>Revenu Imposable</h4>"
                     f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
 
-            # Affichage du message sur le revenu imposable
-            if revenu_imposable < 0:
-                st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
-            else:
-                st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
+            # Affichage des graphiques en fonction de la période choisie
+            st.markdown("<h3 style='font-size:18px;'>Evolution des Revenus et Charges</h3>", unsafe_allow_html=True)
 
-        else:
-            st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
-    else:
-        st.error("Erreur lors du traitement des données.")
+            # Graphique des revenus et charges par mois
+            fig_fiscal = px.line(df, x='Date', y=['Revenus', 'Charges'], title='Evolution des Revenus et Charges',
+                                  labels={'value': 'Montant (€)', 'variable': 'Type'},
+                                  color_discrete_sequence=['#006400', '#FF0000'])
+            st.plotly_chart(fig_fiscal)
 
 
 
