@@ -301,11 +301,15 @@ def page2():
             f"</div>", unsafe_allow_html=True
         )
 
+    # Ajouter un espace entre les graphiques circulaires et le texte d'alerte
+    st.markdown("<br><br>", unsafe_allow_html=True)  # Ajout de marges
+
     # Affichage du message sur le revenu imposable
     if revenu_imposable < 0:
         st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
     else:
         st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
+
 
     # Section du formulaire fiscal 2042
     st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
