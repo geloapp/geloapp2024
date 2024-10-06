@@ -237,7 +237,7 @@ def page1():
         st.error("Erreur lors du traitement des données.")
 
 
-
+###################################################################################### PAGE 2 ###########################################################################################
 # --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
 def page2():
     # Ajouter le logo de Fifiloc
@@ -274,25 +274,39 @@ def page2():
     else:
         revenu_imposable = total_revenus - total_charges
 
-    # Affichage des résultats sous forme de KPI
-    col1, col2, col3 = st.columns(3)
+    # Affichage des KPI sous forme de cercles stylisés
+    kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
 
-    with col1:
-        st.markdown("<h3 style='font-size:18px;'>Total des Revenus</h3>", unsafe_allow_html=True)
-        st.markdown(f"<h2 style='color: navy;'>{total_revenus:.2f} €</h2>", unsafe_allow_html=True)
+    with kpi_col1:
+        st.markdown(
+            f"<div style='border-radius: 50%; background-color: #d0a9a9; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(-10deg) scale(1.2);'>"
+            f"<h4 style='color: white;'>Total des Revenus</h4>"
+            f"<h3 style='color: white;'>{total_revenus:.2f} €</h3>"
+            f"</div>", unsafe_allow_html=True
+        )
 
-    with col2:
-        st.markdown("<h3 style='font-size:18px;'>Total des Charges</h3>", unsafe_allow_html=True)
-        st.markdown(f"<h2 style='color: red;'>{total_charges:.2f} €</h2>", unsafe_allow_html=True)
+    with kpi_col2:
+        st.markdown(
+            f"<div style='border-radius: 50%; background-color: #ff5757; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(10deg) scale(1.1);'>"
+            f"<h4 style='color: white;'>Total des Charges</h4>"
+            f"<h3 style='color: white;'>{total_charges:.2f} €</h3>"
+            f"</div>", unsafe_allow_html=True
+        )
 
-    with col3:
-        st.markdown("<h3 style='font-size:18px;'>Revenu Imposable</h3>", unsafe_allow_html=True)
-        if revenu_imposable < 0:
-            st.markdown(f"<h2 style='color: orange;'>Négatif : {revenu_imposable:.2f} €</h2>", unsafe_allow_html=True)
-            st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
-        else:
-            st.markdown(f"<h2 style='color: green;'>{revenu_imposable:.2f} €</h2>", unsafe_allow_html=True)
-            st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
+    with kpi_col3:
+        st.markdown(
+            f"<div style='border-radius: 50%; background-color: #d0a9a9; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewY(10deg) scale(1.3);'>"
+            f"<h4 style='color: white;'>Revenu Imposable</h4>"
+            f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
+            f"</div>", unsafe_allow_html=True
+        )
+
+    # Affichage du message sur le revenu imposable
+    if revenu_imposable < 0:
+        st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
+    else:
+        st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
+
 
     # Section du formulaire fiscal 2042
     st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
@@ -303,7 +317,9 @@ def page2():
     revenu_imposable_final = revenu_imposable - reduction_impot
     st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
 
-    
+
+
+###################################################################################### PAGE 3 ###########################################################################################    
 # --- PAGE 3 : FORMULAIRE FISCAL PAR TYPE D'ANNONCE --- #
 def page3():
     # Ajouter le logo de Fifiloc
