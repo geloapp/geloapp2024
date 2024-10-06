@@ -151,7 +151,7 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
 def page1():
     # Ajouter le logo de Fifiloc
     # Importer les données Airbnb
-    logo1 = 'final_logo_fifiloc_#2.png'
+    logo1 = 'final_logo_fifiloc_#22.png'
 
     st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
 
@@ -230,7 +230,7 @@ def page1():
 def page2():
     # Ajouter le logo de Fifiloc
     # Importer les données Airbnb
-    logo1 = 'final_logo_fifiloc_#2.png'
+    logo1 = 'final_logo_fifiloc_#22.png'
 
     st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables (micro-bic ou réel)</h1>", unsafe_allow_html=True)
@@ -297,7 +297,7 @@ def page2():
 def page3():
     # Ajouter le logo de Fifiloc
     # Importer les données Airbnb
-    logo1 = 'final_logo_fifiloc_#2.png'
+    logo1 = 'final_logo_fifiloc_#22.png'
 
     st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables par location</h1>", unsafe_allow_html=True)
@@ -393,7 +393,7 @@ def page3():
 def page4():
     # Ajouter le logo de Fifiloc
     # Importer les données Airbnb
-    logo1 = 'final_logo_fifiloc_#2.png'
+    logo1 = 'final_logo_fifiloc_#22.png'
 
     st.image(logo1, width=100)  # Ajustez le chemin et la taille selon vos besoins
     st.markdown("<h1 style='font-size:24px;'>Petit moment de lecture</h1>", unsafe_allow_html=True)
