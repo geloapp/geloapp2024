@@ -239,6 +239,8 @@ def page1():
 
 ###################################################################################### PAGE 2 ###########################################################################################
 # --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
+###################################################################################### PAGE 2 ###########################################################################################
+# --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
 def page2():
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#22.png'
@@ -274,29 +276,29 @@ def page2():
     else:
         revenu_imposable = total_revenus - total_charges
 
-    # Affichage des KPI sous forme de cercles stylisés
+    # Affichage des KPI sous forme de cercles classiques
     kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
 
     with kpi_col1:
         st.markdown(
-            f"<div style='border-radius: 50%; background-color: #d0a9a9; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(-10deg) scale(1.2);'>"
-            f"<h4 style='color: white;'>Total des Revenus</h4>"
+            f"<div style='border-radius: 50%; background-color: #0072b1; padding: 40px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
+            f"<h4 style='color: white; margin: 0;'>Total des Revenus</h4>"
             f"<h3 style='color: white;'>{total_revenus:.2f} €</h3>"
             f"</div>", unsafe_allow_html=True
         )
 
     with kpi_col2:
         st.markdown(
-            f"<div style='border-radius: 50%; background-color: #ff5757; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(10deg) scale(1.1);'>"
-            f"<h4 style='color: white;'>Total des Charges</h4>"
+            f"<div style='border-radius: 50%; background-color: #ff6347; padding: 40px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
+            f"<h4 style='color: white; margin: 0;'>Total des Charges</h4>"
             f"<h3 style='color: white;'>{total_charges:.2f} €</h3>"
             f"</div>", unsafe_allow_html=True
         )
 
     with kpi_col3:
         st.markdown(
-            f"<div style='border-radius: 50%; background-color: #d0a9a9; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewY(10deg) scale(1.3);'>"
-            f"<h4 style='color: white;'>Revenu Imposable</h4>"
+            f"<div style='border-radius: 50%; background-color: #32cd32; padding: 40px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
+            f"<h4 style='color: white; margin: 0;'>Revenu Imposable</h4>"
             f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
             f"</div>", unsafe_allow_html=True
         )
