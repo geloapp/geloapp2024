@@ -557,19 +557,19 @@ def page1():
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #006400; padding: 10px; text-align: center;'>"
+                    f"<div style='border-radius: 10px; background-color: #006400; padding: 20px; text-align: center;'>"
                     f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #FF0000; padding: 10px; text-align: center;'>"
+                    f"<div style='border-radius: 10px; background-color: #FF0000; padding: 20px; text-align: center;'>"
                     f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #db6635; padding: 10px; text-align: center;'>"
+                    f"<div style='border-radius: 10px; background-color: #db6635; padding: 20px; text-align: center;'>"
                     f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
@@ -629,11 +629,17 @@ def page1():
 
             with fiscal_col3:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #3b0e1c; padding: 20px; height: 150px; text-align: center;'>"
-                    f"<h4 style='color: white;'>Revenu Imposable</h4>"
+                    f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; height: 150px; text-align: center;'>"
+                    f"<h4 style='color: white;'>Revenu imposable</h4>"
                     f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
+
+            # Affichage du message sur le revenu imposable
+            if revenu_imposable < 0:
+                st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
+            else:
+                st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
 
         else:
             st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
