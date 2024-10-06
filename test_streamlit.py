@@ -647,13 +647,13 @@ def page1():
                 st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
 
             # Section du formulaire fiscal 2042
-            st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
-            st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
+            #st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
+            #st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
 
             # Calcul de réduction d'impôt et affichage du revenu final
-            reduction_impot = 300
-            revenu_imposable_final = revenu_imposable - reduction_impot
-            st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
+            #reduction_impot = 300
+            #revenu_imposable_final = revenu_imposable - reduction_impot
+            #st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
 
         else:
             st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
