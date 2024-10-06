@@ -666,13 +666,13 @@ def main():
     st.sidebar.title("Menu")
     page = st.sidebar.selectbox("Sélectionnez une page", ["Bilan financier et fiscal", "Analyse des Revenus", "Formulaires Fiscaux", "Formulaires Fiscaux/type de location", "Bon à savoir"])
 
-    if page == "Dashboard de synthèse":
+    if page == "Bilan financier et fiscal":
         page1()
     elif page == "Analyse des Revenus":
         page2()
     elif page == "Formulaires Fiscaux":
         page3()
-    elif page == "Formulaire Fiscal par Location":
+    elif page == "Formulaires Fiscaux/type de location":
         page4()
     elif page == "Bon à savoir":
         page5()
