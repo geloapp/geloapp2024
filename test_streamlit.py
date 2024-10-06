@@ -537,7 +537,7 @@ def page5():
 # --- PAGE 1 BILAN FINANCIER ET FISCAL
 def page1():
     # Ajouter le logo de Fifiloc
-    logo1 = 'final_logo_fifiloc_#22.png'
+    logo1 = 'final_logo_fifiloc_#111.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
     st.markdown("<h1 style='font-size:24px;'>Bilan des fluctuations financières et fiscales</h1>", unsafe_allow_html=True)
