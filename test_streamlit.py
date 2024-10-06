@@ -678,7 +678,7 @@ def page1():
             fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
             with fiscal_col1:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #2a9d8f; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(-10deg) scale(1.2);'>"
+                    f"<div style='border-radius: 50%; background-color: #063b21; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(-10deg) scale(1.2);'>"
                     f"<h4 style='color: white;'>Revenus totaux</h4>"
                     f"<h3 style='color: white;'>{total_revenus_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
@@ -686,7 +686,7 @@ def page1():
 
             with fiscal_col2:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #e76f51; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(10deg) scale(1.1);'>"
+                    f"<div style='border-radius: 50%; background-color: #a86903; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(10deg) scale(1.1);'>"
                     f"<h4 style='color: white;'>Charges totales</h4>"
                     f"<h3 style='color: white;'>{total_charges_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
@@ -694,7 +694,7 @@ def page1():
 
             with fiscal_col3:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #264653; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewY(10deg) scale(1.3);'>"
+                    f"<div style='border-radius: 50%; background-color: #000234; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewY(10deg) scale(1.3);'>"
                     f"<h4 style='color: white;'>Revenu imposable</h4>"
                     f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
