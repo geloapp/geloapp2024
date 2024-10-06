@@ -557,7 +557,7 @@ def page1():
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #fdf8f5; padding: 10px; text-align: center;'>"
+                    f"<div style='border-radius: 50%; background-color: #be7a52; padding: 10px; text-align: center;'>"
                     #f"<div style='border-radius: 50%; background-color: #471100; padding: 10px; text-align: center;'>"
                     f"<p style='font-size:15px; color:#006400; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
