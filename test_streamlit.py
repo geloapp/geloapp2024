@@ -588,6 +588,9 @@ def page4():
                     f"</div>", unsafe_allow_html=True
                 )
 
+            # Ajouter un espace entre les graphiques circulaires et le texte d'alerte
+            st.markdown("<br><br>", unsafe_allow_html=True)  # Ajout de marges
+    
             # Affichage du message sur le revenu imposable
             if revenu_imposable < 0:
                 st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
