@@ -400,6 +400,8 @@ def page3():
             mime='text/csv',
         )
 
+
+###################################################################################### PAGE 4 ###########################################################################################
 ## -- PAGE4 : BILAN FIANCIER et FISCAL
 def page4():
     # Ajouter le logo de Fifiloc
@@ -545,7 +547,7 @@ def page4():
             fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
             with fiscal_col1:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #f9e6e6; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(-10deg) scale(1.2);'>"
+                    f"<div style='border-radius: 50%; background-color: #003e5c; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(-10deg) scale(1.2);'>"
                     f"<h4 style='color: white;'>Revenus totaux</h4>"
                     f"<h3 style='color: white;'>{total_revenus_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
@@ -553,7 +555,7 @@ def page4():
 
             with fiscal_col2:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #ff5757; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(10deg) scale(1.1);'>"
+                    f"<div style='border-radius: 50%; background-color: #7c4a00; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(10deg) scale(1.1);'>"
                     f"<h4 style='color: white;'>Charges totales</h4>"
                     f"<h3 style='color: white;'>{total_charges_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
@@ -561,7 +563,7 @@ def page4():
 
             with fiscal_col3:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #d0a9a9; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewY(10deg) scale(1.3);'>"
+                    f"<div style='border-radius: 50%; background-color: #7c6800; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewY(10deg) scale(1.3);'>"
                     f"<h4 style='color: white;'>Revenu imposable</h4>"
                     f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
