@@ -701,6 +701,10 @@ def page5():
         twitter_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
         st.image(tiktok_logo, width=30)
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
+    
+    # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
+    st.markdown("<p style='text-align:center; font-size:12px;'>Droits d'auteur réservés, Nowai</p>", unsafe_allow_html=True)
+
 
 
 # --- NAVIGATION --- #
