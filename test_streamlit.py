@@ -149,7 +149,7 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
 # -- PAGE1 : ANALYSE DES REVENUS--- #
 def page1():
     # Ajouter le logo de Fifiloc
-    logo1 = 'final_logo_fifiloc_#111.png'
+    logo1 = 'final_logo_fifiloc_#222.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
     st.markdown("<h1 style='font-size:24px;'>Analyse des Revenus, Charges et Soldes Mensuels</h1>", unsafe_allow_html=True)
@@ -423,7 +423,7 @@ def page3():
 ## -- PAGE4 : BILAN FIANCIER et FISCAL
 def page4():
     # Ajouter le logo de Fifiloc
-    logo1 = 'final_logo_fifiloc_#22.png'
+    logo1 = 'final_logo_fifiloc_#222.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
     st.markdown("<h1 style='font-size:24px;'>Bilan des fluctuations financières et fiscales</h1>", unsafe_allow_html=True)
@@ -608,7 +608,7 @@ def page4():
 # --- PAGE 5 : NICE TO KNOW --- #
 def page5():
     # Ajouter le logo de Fifiloc
-    logo1 = 'final_logo_fifiloc_#22.png'
+    logo1 = 'final_logo_fifiloc_#222.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
     st.markdown("<h1 style='font-size:24px;'>Petit moment de lecture</h1>", unsafe_allow_html=True)
