@@ -498,17 +498,17 @@ def page3():
         st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
     
     with col3:
-        linkedin_logo = "facebook_logo.png"  
+        facebook_logo = "facebook_logo.png"  
         st.image(facebook_logo, width=30)
         st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
     
     with col4:
-        twitter_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
+        instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
         st.image(instagramm_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     with col5:
-        twitter_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        tiktok_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
         st.image(tiktok_logo, width=30)
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
     
