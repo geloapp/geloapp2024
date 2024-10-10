@@ -251,9 +251,9 @@ def page1():
         st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
     
     with col3:
-        linkedin_logo = "facebook_logo.png"  
-        st.image(facebook_logo, width=30)
-        st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
+        twitter_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
+        st.image(instagram_logo, width=30)
+        st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
