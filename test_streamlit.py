@@ -529,7 +529,11 @@ def page4():
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
     st.markdown("<h1 style='font-size:24px;'>Bilan des fluctuations financières et fiscales</h1>", unsafe_allow_html=True)
-
+    st.markdown(
+        "Ce tableau de bord du bilan financier et fiscal vous aide à évaluer rapidement la santé financière de vos investissements, à identifier de potentiels risques et opportunités, à prendre des décisions éclairées mais aussi à vous aider dans votre démarche de déclaration fiscale."
+        "Cette vue vous aide à mieux comprendre les fluctuations financières et à optimiser la gestion de vos annonces pour un rendement maximal sur une période donnée.",
+        unsafe_allow_html=True
+    )
     # Import des données traitées
     airbnb_data_rev = process_airbnb_data()
     booking_data_rev = process_booking_data()
