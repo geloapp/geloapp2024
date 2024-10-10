@@ -266,12 +266,7 @@ def page1():
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
-     st.markdown(
-    """<p style='text-align:center; font-size:15px;'>
-    Droits d'auteur réservés, <a href='https://now-ai.fr/' target='_blank'>Nowai</a>
-    </p>""", 
-    unsafe_allow_html=True
-    )
+     st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - (https://now-ai.fr/</p>)", unsafe_allow_html=True)
 
 
 ###################################################################################### PAGE 2 ###########################################################################################
@@ -388,12 +383,7 @@ def page2():
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
-    st.markdown(
-    """<p style='text-align:center; font-size:15px;'>
-    Droits d'auteur réservés, <a href='https://now-ai.fr/' target='_blank'>Nowai</a>
-    </p>""", 
-    unsafe_allow_html=True
-    )
+     st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - (https://now-ai.fr/</p>)", unsafe_allow_html=True)
 
 
 ###################################################################################### PAGE 3 ###########################################################################################    
@@ -523,12 +513,7 @@ def page3():
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
-    st.markdown(
-    """<p style='text-align:center; font-size:15px;'>
-    Droits d'auteur réservés, <a href='https://now-ai.fr/' target='_blank'>Nowai</a>
-    </p>""", 
-    unsafe_allow_html=True
-    )
+     st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - (https://now-ai.fr/</p>)", unsafe_allow_html=True)
 
 
 
@@ -750,12 +735,7 @@ def page4():
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
 
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
-        st.markdown(
-    """<p style='text-align:center; font-size:15px;'>
-    Droits d'auteur réservés, <a href='https://now-ai.fr/' target='_blank'>Nowai</a>
-    </p>""", 
-    unsafe_allow_html=True
-    )
+     st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - (https://now-ai.fr/</p>)", unsafe_allow_html=True)
 
 
 
@@ -858,12 +838,7 @@ def page5():
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
-    st.markdown(
-    """<p style='text-align:center; font-size:15px;'>
-    Droits d'auteur réservés, <a href='https://now-ai.fr/' target='_blank'>Nowai</a>
-    </p>""", 
-    unsafe_allow_html=True
-    )
+     st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - (https://now-ai.fr/</p>)", unsafe_allow_html=True)
 
 
 
