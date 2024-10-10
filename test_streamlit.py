@@ -325,7 +325,7 @@ def page2():
 # --- PAGE 3 : FORMULAIRE FISCAL PAR TYPE D'ANNONCE --- #
 def page3():
     # Ajouter le logo de Fifiloc
-    logo1 = 'final_logo_fifiloc_#22.png'
+    logo1 = 'final_logo_fifiloc_#222.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables par location</h1>", unsafe_allow_html=True)
