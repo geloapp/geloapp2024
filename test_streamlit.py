@@ -241,7 +241,7 @@ def page1():
 # --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
 def page2():
     # Ajouter le logo de Fifiloc
-    logo1 = 'final_logo_fifiloc_#22.png'
+    logo1 = 'final_logo_fifiloc_#222.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables (micro-bic ou réel)</h1>", unsafe_allow_html=True)
