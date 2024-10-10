@@ -235,6 +235,39 @@ def page1():
             st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
     else:
         st.error("Erreur lors du traitement des données.")
+    # --- Ajout des icônes des réseaux sociaux en bas de page ---
+    st.markdown("<hr>", unsafe_allow_html=True)  # Ligne séparatrice
+    
+    col1, col2, col3, col4, col5 = st.columns(5)
+    
+    with col1:
+        linkedin_logo = "linkedin_logo.png"  
+        st.image(linkedin_logo, width=30)
+        st.markdown("[Suivez-nous sur LinkedIn](https://www.linkedin.com)", unsafe_allow_html=True)
+    
+    with col2:
+        twitter_logo = "twitter_logo.png"  
+        st.image(twitter_logo, width=30)
+        st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
+    
+    with col3:
+        linkedin_logo = "facebook_logo.png"  
+        st.image(facebook_logo, width=30)
+        st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
+    
+    with col4:
+        twitter_logo = "instagramm_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(instagram_logo, width=30)
+        st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
+    
+    with col5:
+        twitter_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(tiktok_logo, width=30)
+        st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
+    
+    # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
+    st.markdown("<p style='text-align:center; font-size:12px;'>Droits d'auteur réservés, Nowai</p>", unsafe_allow_html=True)
+
 
 ###################################################################################### PAGE 2 ###########################################################################################
 # --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
@@ -319,6 +352,38 @@ def page2():
     revenu_imposable_final = revenu_imposable - reduction_impot
     st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
 
+    # --- Ajout des icônes des réseaux sociaux en bas de page ---
+    st.markdown("<hr>", unsafe_allow_html=True)  # Ligne séparatrice
+    
+    col1, col2, col3, col4, col5 = st.columns(5)
+    
+    with col1:
+        linkedin_logo = "linkedin_logo.png"  
+        st.image(linkedin_logo, width=30)
+        st.markdown("[Suivez-nous sur LinkedIn](https://www.linkedin.com)", unsafe_allow_html=True)
+    
+    with col2:
+        twitter_logo = "twitter_logo.png"  
+        st.image(twitter_logo, width=30)
+        st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
+    
+    with col3:
+        linkedin_logo = "facebook_logo.png"  
+        st.image(facebook_logo, width=30)
+        st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
+    
+    with col4:
+        twitter_logo = "instagramm_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(instagram_logo, width=30)
+        st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
+    
+    with col5:
+        twitter_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(tiktok_logo, width=30)
+        st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
+    
+    # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
+    st.markdown("<p style='text-align:center; font-size:12px;'>Droits d'auteur réservés, Nowai</p>", unsafe_allow_html=True)
 
 
 ###################################################################################### PAGE 3 ###########################################################################################    
@@ -417,6 +482,38 @@ def page3():
             file_name='resultats_fiscaux.csv',
             mime='text/csv',
         )
+    # --- Ajout des icônes des réseaux sociaux en bas de page ---
+    st.markdown("<hr>", unsafe_allow_html=True)  # Ligne séparatrice
+    
+    col1, col2, col3, col4, col5 = st.columns(5)
+    
+    with col1:
+        linkedin_logo = "linkedin_logo.png"  
+        st.image(linkedin_logo, width=30)
+        st.markdown("[Suivez-nous sur LinkedIn](https://www.linkedin.com)", unsafe_allow_html=True)
+    
+    with col2:
+        twitter_logo = "twitter_logo.png"  
+        st.image(twitter_logo, width=30)
+        st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
+    
+    with col3:
+        linkedin_logo = "facebook_logo.png"  
+        st.image(facebook_logo, width=30)
+        st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
+    
+    with col4:
+        twitter_logo = "instagramm_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(instagram_logo, width=30)
+        st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
+    
+    with col5:
+        twitter_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(tiktok_logo, width=30)
+        st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
+    
+    # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
+    st.markdown("<p style='text-align:center; font-size:12px;'>Droits d'auteur réservés, Nowai</p>", unsafe_allow_html=True)
 
 
 ###################################################################################### PAGE 4 ###########################################################################################
@@ -604,6 +701,40 @@ def page4():
             st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
     else:
         st.error("Erreur lors du traitement des données.")
+
+
+    # --- Ajout des icônes des réseaux sociaux en bas de page ---
+    st.markdown("<hr>", unsafe_allow_html=True)  # Ligne séparatrice
+    
+    col1, col2, col3, col4, col5 = st.columns(5)
+    
+    with col1:
+        linkedin_logo = "linkedin_logo.png"  
+        st.image(linkedin_logo, width=30)
+        st.markdown("[Suivez-nous sur LinkedIn](https://www.linkedin.com)", unsafe_allow_html=True)
+    
+    with col2:
+        twitter_logo = "twitter_logo.png"  
+        st.image(twitter_logo, width=30)
+        st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
+    
+    with col3:
+        linkedin_logo = "facebook_logo.png"  
+        st.image(facebook_logo, width=30)
+        st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
+    
+    with col4:
+        twitter_logo = "instagramm_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(instagram_logo, width=30)
+        st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
+    
+    with col5:
+        twitter_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(tiktok_logo, width=30)
+        st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
+    
+    # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
+    st.markdown("<p style='text-align:center; font-size:12px;'>Droits d'auteur réservés, Nowai</p>", unsafe_allow_html=True)
 
 # --- PAGE 5 : NICE TO KNOW --- #
 def page5():
