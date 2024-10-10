@@ -744,46 +744,6 @@ def page5():
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#222.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
-    # Ajouter une image de fond et du texte en blanc dessus
-    background_image = 'background_image.png'  # Chemin de votre image en local
-
-    # Charger l'image avec st.image pour que Streamlit la serve correctement
-    background_image = 'background_image.png'  # Votre image locale
-
-    # Utilisation de l'image en arrière-plan dans un style HTML
-    st.markdown(
-        f"""
-        <style>
-        .background {{
-            background-image: url('data:image/png;base64,{image_to_base64(background_image)}');
-            background-size: cover;
-            height: 100px;
-            position: relative;
-        }}
-        .overlay {{
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            color: white;
-            font-size: 32px;
-            font-weight: bold;
-        }}
-        </style>
-        <div class="background">
-            <div class="overlay">Petit moment de lecture</div>
-        </div>
-        """,
-        unsafe_allow_html=True
-    )
-    # Continuer avec le reste de la page...
-
-# Fonction pour convertir une image locale en base64
-import base64
-
-def image_to_base64(image_path):
-    with open(image_path, "rb") as img_file:
-        return base64.b64encode(img_file.read()).decode("utf-8")
 
     st.markdown("<h1 style='font-size:24px;'>Petit moment de lecture</h1>", unsafe_allow_html=True)
     
