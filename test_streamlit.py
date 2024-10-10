@@ -251,10 +251,19 @@ def page1():
         st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
     
     with col3:
-        twitter_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
+        facebook_logo = "facebook_logo.png"  
+        st.image(facebook_logo, width=30)
+        st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
+    
+    with col4:
+        instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
         st.image(instagram_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
+    with col5:
+        tiktok_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(tiktok_logo, width=30)
+        st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     st.markdown("<p style='text-align:center; font-size:12px;'>Droits d'auteur réservés, Nowai</p>", unsafe_allow_html=True)
@@ -359,17 +368,17 @@ def page2():
         st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
     
     with col3:
-        linkedin_logo = "facebook_logo.png"  
+        facebook_logo = "facebook_logo.png"  
         st.image(facebook_logo, width=30)
         st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
     
     with col4:
-        twitter_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
+        instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
         st.image(instagram_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     with col5:
-        twitter_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        tiktok_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
         st.image(tiktok_logo, width=30)
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
     
@@ -505,6 +514,8 @@ def page3():
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     st.markdown("<p style='text-align:center; font-size:12px;'>Droits d'auteur réservés, Nowai</p>", unsafe_allow_html=True)
+
+
 
 
 ###################################################################################### PAGE 4 ###########################################################################################
@@ -710,20 +721,20 @@ def page4():
         st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
     
     with col3:
-        linkedin_logo = "facebook_logo.png"  
+        facebook_logo = "facebook_logo.png"  
         st.image(facebook_logo, width=30)
         st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
     
     with col4:
-        twitter_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
+        instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
         st.image(instagram_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     with col5:
-        twitter_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        tiktok_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
         st.image(tiktok_logo, width=30)
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
-    
+
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     st.markdown("<p style='text-align:center; font-size:12px;'>Droits d'auteur réservés, Nowai</p>", unsafe_allow_html=True)
 
@@ -810,17 +821,17 @@ def page5():
         st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
     
     with col3:
-        linkedin_logo = "facebook_logo.png"  
+        facebook_logo = "facebook_logo.png"  
         st.image(facebook_logo, width=30)
         st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
     
     with col4:
-        twitter_logo = "instagramm_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
         st.image(instagram_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     with col5:
-        twitter_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        tiktok_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
         st.image(tiktok_logo, width=30)
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
     
