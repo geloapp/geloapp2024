@@ -236,7 +236,6 @@ def page1():
     else:
         st.error("Erreur lors du traitement des données.")
 
-
 ###################################################################################### PAGE 2 ###########################################################################################
 # --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
 def page2():
