@@ -150,12 +150,12 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
 def page1():
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#222.png'
-    st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
+    st.image(logo1, width=70)  #  Ajustez le chemin et la taille selon vos besoins
 
-    st.markdown("<h1 style='font-size:24px;'>Analyse des Revenus, Charges et Soldes Mensuels</h1>", unsafe_allow_html=True)
+    st.markdown("<h1 style='font-size:24px;'>Suivi de la trésorerie Analyse des Revenus, Charges et Soldes Mensuels</h1>", unsafe_allow_html=True)
     st.markdown(
-        "Découvrez une vue d'ensemble détaillée de vos revenus, charges, et soldes mensuels. "
-        "Cette analyse vous aide à mieux comprendre les fluctuations financières et à optimiser la gestion de vos annonces pour un rendement maximal.",
+        "Surveillez et analysez vos revenus, sorties de fonds (charges) et vos soldes mensuels."
+        "Cette vue vous aide à mieux comprendre les fluctuations financières et à optimiser la gestion de vos annonces pour un rendement maximal sur une période donnée.",
         unsafe_allow_html=True
     )
 
@@ -851,13 +851,13 @@ def page5():
 def main():
     st.sidebar.title("Menu")
     page = st.sidebar.selectbox("Sélectionnez une page", [
-     "Analyse des Revenus", 
+     "Suivi de trésorerie", 
      "Formulaires Fiscaux", 
      "Formulaires Fiscaux/type de location", 
      "Bilan financier et fiscal", 
      "Bon à savoir"])
     
-    if page == "Analyse des Revenus":
+    if page == "Suivi de trésorerie":
         page1()
     elif page == "Formulaires Fiscaux":
         page2()
