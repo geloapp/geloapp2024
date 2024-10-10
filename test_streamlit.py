@@ -747,14 +747,17 @@ def page5():
     # Ajouter une image de fond et du texte en blanc dessus
     background_image = 'background_image.png'  # Chemin de votre image en local
 
-    # CSS pour l'image de fond et le texte
+    # Charger l'image avec st.image pour que Streamlit la serve correctement
+    background_image = 'background_image.png'  # Votre image locale
+
+    # Utilisation de l'image en arrière-plan dans un style HTML
     st.markdown(
         f"""
         <style>
         .background {{
-            background-image: url('{background_image}');
+            background-image: url('data:image/png;base64,{image_to_base64(background_image)}');
             background-size: cover;
-            height: 200px;
+            height: 300px;
             position: relative;
         }}
         .overlay {{
@@ -773,7 +776,14 @@ def page5():
         """,
         unsafe_allow_html=True
     )
+    # Continuer avec le reste de la page...
 
+# Fonction pour convertir une image locale en base64
+import base64
+
+def image_to_base64(image_path):
+    with open(image_path, "rb") as img_file:
+        return base64.b64encode(img_file.read()).decode("utf-8")
 
     st.markdown("<h1 style='font-size:24px;'>Petit moment de lecture</h1>", unsafe_allow_html=True)
     
