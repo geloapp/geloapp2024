@@ -257,7 +257,7 @@ def page1():
     
     with col4:
         instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
-        st.image(instagram_logo, width=30)
+        st.image(instagramm_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     with col5:
@@ -374,7 +374,7 @@ def page2():
     
     with col4:
         instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
-        st.image(instagram_logo, width=30)
+        st.image(instagramm_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     with col5:
@@ -504,7 +504,7 @@ def page3():
     
     with col4:
         twitter_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
-        st.image(instagram_logo, width=30)
+        st.image(instagramm_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     with col5:
@@ -727,7 +727,7 @@ def page4():
     
     with col4:
         instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
-        st.image(instagram_logo, width=30)
+        st.image(instagramm_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     with col5:
@@ -827,7 +827,7 @@ def page5():
     
     with col4:
         instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
-        st.image(instagram_logo, width=30)
+        st.image(instagramm_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     with col5:
