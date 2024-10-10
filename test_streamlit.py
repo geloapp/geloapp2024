@@ -267,15 +267,9 @@ def page1():
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     # st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - https://now-ai.fr/</p>", unsafe_allow_html=True)
-    st.markdown(
-        """
-        <p style='text-align:center; font-size:15px;'>
-        Droits d'auteur réservés, <a href='https://now-ai.fr/' target='_blank'>Nowai</a>
-        </p>
-        """, 
-        unsafe_allow_html=True
-    )
-          
+    st.markdown("[Droits d'auteur réservés, Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
+
+   
 
 
 ###################################################################################### PAGE 2 ###########################################################################################
@@ -393,14 +387,7 @@ def page2():
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     # st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - (https://now-ai.fr/</p>)", unsafe_allow_html=True)
-      st.markdown(
-          """
-          <p style='text-align:center; font-size:15px;'>
-          Droits d'auteur réservés, <a href='https://now-ai.fr/' target='_blank'>Nowai</a>
-          </p>
-          """, 
-          unsafe_allow_html=True
-      )
+    st.markdown("[Droits d'auteur réservés, Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
 
 ###################################################################################### PAGE 3 ###########################################################################################    
 # --- PAGE 3 : FORMULAIRE FISCAL PAR TYPE D'ANNONCE --- #
@@ -530,15 +517,7 @@ def page3():
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     # st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - (https://now-ai.fr/</p>)", unsafe_allow_html=True)
-    st.markdown(
-        """
-        <p style='text-align:center; font-size:15px;'>
-        Droits d'auteur réservés, <a href='https://now-ai.fr/' target='_blank'>Nowai</a>
-        </p>
-        """, 
-        unsafe_allow_html=True
-    )
-
+    st.markdown("[Droits d'auteur réservés, Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
 
 ###################################################################################### PAGE 4 ###########################################################################################
 ## -- PAGE4 : BILAN FIANCIER et FISCAL
@@ -759,14 +738,8 @@ def page4():
 
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     # st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - (https://now-ai.fr/</p>)", unsafe_allow_html=True)
-    st.markdown(
-        """
-        <p style='text-align:center; font-size:15px;'>
-        Droits d'auteur réservés, <a href='https://now-ai.fr/' target='_blank'>Nowai</a>
-        </p>
-        """, 
-        unsafe_allow_html=True
-    )
+    st.markdown("[Droits d'auteur réservés, Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
+    
 
 
 # --- PAGE 5 : NICE TO KNOW --- #
@@ -870,14 +843,7 @@ def page5():
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     
     #st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - https://now-ai.fr/</p>", unsafe_allow_html=True)
-    st.markdown(
-        """
-        <p style='text-align:center; font-size:15px;'>
-        Droits d'auteur réservés, <a href='https://now-ai.fr/' target='_blank'>Nowai</a>
-        </p>
-        """, 
-        unsafe_allow_html=True
-    )
+    st.markdown("[Droits d'auteur réservés, Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
 
 
 # --- NAVIGATION --- #
