@@ -740,6 +740,35 @@ def page4():
 
 # --- PAGE 5 : NICE TO KNOW --- #
 def page5():
+    # Ajouter une image de fond et du texte en blanc dessus
+    background_image = 'background_image.png'  # Chemin de votre image en local
+
+    # CSS pour l'image de fond et le texte
+    st.markdown(
+        f"""
+        <style>
+        .background {{
+            background-image: url('{background_image}');
+            background-size: cover;
+            height: 300px;
+            position: relative;
+        }}
+        .overlay {{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            color: white;
+            font-size: 32px;
+            font-weight: bold;
+        }}
+        </style>
+        <div class="background">
+            <div class="overlay">Petit moment de lecture</div>
+        </div>
+        """,
+        unsafe_allow_html=True
+    )
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#222.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
