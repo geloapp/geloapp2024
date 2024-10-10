@@ -678,12 +678,12 @@ def page5():
     col1, col2 = st.columns(2)
     
     with col1:
-        linkedin_logo = "logo_linkedin.png"  # Remplacer par le chemin correct du logo LinkedIn
+        linkedin_logo = "linkedin_logo.png"  # Remplacer par le chemin correct du logo LinkedIn
         st.image(linkedin_logo, width=30)
         st.markdown("[Suivez-nous sur LinkedIn](https://www.linkedin.com)", unsafe_allow_html=True)
     
     with col2:
-        twitter_logo = "logo_twitter.png"  # Remplacer par le chemin correct du logo Twitter
+        twitter_logo = "twitter_logo.png"  # Remplacer par le chemin correct du logo Twitter
         st.image(twitter_logo, width=30)
         st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
 
