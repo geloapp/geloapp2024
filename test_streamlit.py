@@ -238,7 +238,7 @@ def page1():
     # --- Ajout des icônes des réseaux sociaux en bas de page ---
     st.markdown("<hr>", unsafe_allow_html=True)  # Ligne séparatrice
     
-    col1, col2, col3, col4, col5 = st.columns(5)
+    col1, col2, col3,  = st.columns(3)
     
     with col1:
         linkedin_logo = "linkedin_logo.png"  
@@ -255,15 +255,6 @@ def page1():
         st.image(facebook_logo, width=30)
         st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
     
-    with col4:
-        twitter_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
-        st.image(instagram_logo, width=30)
-        st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
-    
-    with col5:
-        twitter_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
-        st.image(tiktok_logo, width=30)
-        st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
     
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     st.markdown("<p style='text-align:center; font-size:12px;'>Droits d'auteur réservés, Nowai</p>", unsafe_allow_html=True)
