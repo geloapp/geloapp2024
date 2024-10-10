@@ -757,7 +757,7 @@ def page5():
         .background {{
             background-image: url('data:image/png;base64,{image_to_base64(background_image)}');
             background-size: cover;
-            height: 50px;
+            height: 100px;
             position: relative;
         }}
         .overlay {{
