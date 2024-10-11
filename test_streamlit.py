@@ -151,7 +151,10 @@ def page0():
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#222.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
-
+    # Ajouter le message de bienvenue
+    st.markdown("<h2 style='text-align: center;'>Bienvenue sur FiFiloc</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>Votre application de gestion financière et fiscale de vos locations immobilières</p>", unsafe_allow_html=True)
+    
     st.markdown("<h1 style='text-align: center;'>Connexion</h1>", unsafe_allow_html=True)
     
     # Champ Identifiant
