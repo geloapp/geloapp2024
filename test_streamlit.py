@@ -772,20 +772,20 @@ def page4():
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #063b21; padding: 15px; text-align: center;'>"
-                    f"<p style='font-size:12px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='border-radius: 10px; background-color: #ffffff; padding: 20px; text-align: center;'>"
+                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #a86903; padding: 15px; text-align: center;'>"
-                    f"<p style='font-size:12px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='border-radius: 10px; background-color: #d0a9a9; padding: 20px; text-align: center;'>"
+                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #000234; padding: 15px; text-align: center;'>"
-                    f"<p style='font-size:12px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='border-radius: 10px; background-color: #d7757a; padding: 20px; text-align: center;'>"
+                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
