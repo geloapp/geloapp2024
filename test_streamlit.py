@@ -686,11 +686,13 @@ def page4():
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
 
     st.markdown("<h1 style='font-size:24px;'>Bilan des fluctuations financières et fiscales</h1>", unsafe_allow_html=True)
+    
     st.markdown(
         "Ce tableau de bord du bilan financier et fiscal vous aide à évaluer rapidement la santé financière de vos investissements, à identifier de potentiels risques et opportunités, à prendre des décisions éclairées mais aussi à vous aider dans votre démarche de déclaration fiscale."
         "Cette vue vous aide à mieux comprendre les fluctuations financières et à optimiser la gestion de vos annonces pour un rendement maximal sur une période donnée.",
         unsafe_allow_html=True
     )
+    
     # Import des données traitées
     airbnb_data_rev = process_airbnb_data()
     booking_data_rev = process_booking_data()
@@ -768,29 +770,29 @@ def page4():
             total_charges = final_data_filtre['Charges'].sum()
             total_solde = final_data_filtre['Solde_mensuel'].sum()
 
-            # Mise en page du Dashboard : KPI en première ligne
+            # Mise en page du Dashboard : KPI en première ligne avec cercles
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #063b21; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:18px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='border-radius: 50%; background-color: #063b21; padding: 30px; height: 150px; width: 150px; text-align: center;'>"
+                    f"<h4 style='color: white; font-size:16px; margin: 0;'>Revenus totaux</h4>"
+                    f"<h3 style='color: white; font-size:18px;'>{total_revenus:.2f} € sur {total_mois} mois</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #a86903; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:18px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='border-radius: 50%; background-color: #a86903; padding: 30px; height: 150px; width: 150px; text-align: center;'>"
+                    f"<h4 style='color: white; font-size:16px; margin: 0;'>Charges totales</h4>"
+                    f"<h3 style='color: white; font-size:18px;'>{total_charges:.2f} € sur {total_mois} mois</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #000234; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:18px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='border-radius: 50%; background-color: #000234; padding: 30px; height: 150px; width: 150px; text-align: center;'>"
+                    f"<h4 style='color: white; font-size:16px; margin: 0;'>Solde total</h4>"
+                    f"<h3 style='color: white; font-size:18px;'>{total_solde:.2f} € sur {total_mois} mois</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
-
-                # Ajouter un espace entre les graphiques circulaires et le texte d'alerte
-            #st.markdown("<br><br>", unsafe_allow_html=True)  # Ajout de marges
 
             # Affichage d'une alerte si le solde est négatif
             if total_solde < 0:
@@ -827,82 +829,50 @@ def page4():
             else:
                 revenu_imposable = total_revenus_fiscal - total_charges_fiscal
 
-            # Affichage des KPI fiscaux avec cercles déformés
+            # Affichage des KPI fiscaux avec cercles
             fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
             with fiscal_col1:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #471100; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(-10deg) scale(1.2);'>"
-                    f"<h4 style='color: white;'>Revenus totaux</h4>"
-                    f"<h3 style='color: white;'>{total_revenus_fiscal:.2f} €</h3>"
+                    f"<div style='border-radius: 50%; background-color: #063b21; padding: 30px; height: 150px; width: 150px; text-align: center;'>"
+                    f"<h4 style='color: white; font-size:16px; margin: 0;'>Revenus bruts</h4>"
+                    f"<h3 style='color: white; font-size:18px;'>{total_revenus_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
-
             with fiscal_col2:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #e03a06; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewX(10deg) scale(1.1);'>"
-                    f"<h4 style='color: white;'>Charges totales</h4>"
-                    f"<h3 style='color: white;'>{total_charges_fiscal:.2f} €</h3>"
+                    f"<div style='border-radius: 50%; background-color: #a86903; padding: 30px; height: 150px; width: 150px; text-align: center;'>"
+                    f"<h4 style='color: white; font-size:16px; margin: 0;'>Charges déductibles</h4>"
+                    f"<h3 style='color: white; font-size:18px;'>{total_charges_fiscal:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
-
             with fiscal_col3:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #8f3316; padding: 30px; height: 170px; width: 200px; text-align: center; transform: skewY(10deg) scale(1.3);'>"
-                    f"<h4 style='color: white;'>Revenu imposable</h4>"
-                    f"<h3 style='color: white;'>{revenu_imposable:.2f} €</h3>"
+                    f"<div style='border-radius: 50%; background-color: #000234; padding: 30px; height: 150px; width: 150px; text-align: center;'>"
+                    f"<h4 style='color: white; font-size:16px; margin: 0;'>Revenu imposable</h4>"
+                    f"<h3 style='color: white; font-size:18px;'>{revenu_imposable:.2f} €</h3>"
                     f"</div>", unsafe_allow_html=True
                 )
 
-            # Ajouter un espace entre les graphiques circulaires et le texte d'alerte
-            st.markdown("<br><br>", unsafe_allow_html=True)  # Ajout de marges
-    
-            # Affichage du message sur le revenu imposable
-            if revenu_imposable < 0:
-                st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
-            else:
-                st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
+            # Afficher le graphique des revenus et charges
+            fig_fiscal = px.bar(
+                df, 
+                x='mois_annee', 
+                y=['Revenus', 'Charges'],
+                title="Revenus et Charges par mois",
+                labels={'value': 'Montant (€)', 'mois_annee': 'Période'},
+                color_discrete_sequence=['#006400', '#FF0000']
+            )
+            fig_fiscal.update_layout(barmode='group')
 
+            # Affichage du graphique
+            st.plotly_chart(fig_fiscal, use_container_width=True)
 
-        else:
-            st.error("Erreur lors de la concaténation des données Airbnb et Booking.")
-    else:
-        st.error("Erreur lors du traitement des données.")
+# Lancer l'application Streamlit
+if __name__ == "__main__":
+    page4()
 
-
-    # --- Ajout des icônes des réseaux sociaux en bas de page ---
-    st.markdown("<hr>", unsafe_allow_html=True)  # Ligne séparatrice
     
-    col1, col2, col3, col4, col5 = st.columns(5)
-    
-    with col1:
-        linkedin_logo = "linkedin_logo.png"  
-        st.image(linkedin_logo, width=30)
-        st.markdown("[Suivez-nous sur LinkedIn](https://www.linkedin.com)", unsafe_allow_html=True)
-    
-    with col2:
-        twitter_logo = "twitter_logo.png"  
-        st.image(twitter_logo, width=30)
-        st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
-    
-    with col3:
-        facebook_logo = "facebook_logo.png"  
-        st.image(facebook_logo, width=30)
-        st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
-    
-    with col4:
-        instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
-        st.image(instagramm_logo, width=30)
-        st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
-    
-    with col5:
-        tiktok_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
-        st.image(tiktok_logo, width=30)
-        st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
-
-    # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
-    # st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - https://now-ai.fr/</p>", unsafe_allow_html=True)
-    st.markdown(" Droits d'auteur réservés, [Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
-    
+###################################################################################### PAGE 5 ###########################################################################################
 
 
 # --- PAGE 5 : NICE TO KNOW --- #
