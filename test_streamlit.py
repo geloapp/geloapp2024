@@ -955,9 +955,7 @@ def page5():
 
 # --- NAVIGATION --- #
 def main():
-    # Utilisation de l'état de session pour suivre la connexion et la page actuelle
-    if 'connexion_reussie' not in st.session_state:
-        st.session_state.connexion_reussie = False
+    # Utilisation de l'état de session pour suivre la page actuelle
     if 'page' not in st.session_state:
         st.session_state.page = "connexion"
 
