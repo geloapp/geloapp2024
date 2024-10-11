@@ -148,6 +148,12 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
 
 # --- PAGE 0 : CONNEXION --- #
 def page0():
+    # Ajouter le logo de Fifiloc
+    logo1 = 'final_logo_fifiloc_#222.png'
+    st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
+    
+    st.markdown("<h1 style='text-align: center;'>Connexion</h1>", unsafe_allow_html=True)
+
     st.markdown("<h1 style='text-align: center;'>Connexion</h1>", unsafe_allow_html=True)
     
     # Champ Identifiant
