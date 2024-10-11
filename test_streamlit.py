@@ -218,27 +218,59 @@ def page00():
     logo1 = 'final_logo_fifiloc_#222.png'
     st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
     
-    # Message de connexion pour synchronisation
+    # Message de synchronisation des annonces
     st.markdown("<h2 style='text-align: center;'>Synchronisation des annonces</h2>", unsafe_allow_html=True)
-    st.markdown("<p style='text-align: center;'>Veuillez vous connecter à vos comptes pour synchroniser vos annonces avec les plateformes suivantes :</p>", unsafe_allow_html=True)
     
-    # Logos et liens de plateformes
-    col1, col2, col3 = st.columns(3)
+    # Explication avant les logos
+    st.markdown("""
+        <p style='text-align: center;'>
+        Afin de centraliser et gérer facilement toutes vos annonces de locations immobilières, 
+        nous vous recommandons de connecter vos comptes de gestion des plateformes suivantes. 
+        Si vous avez déjà des comptes actifs sur ces sites, connectez-vous pour synchroniser vos informations dans un seul et même endroit.
+        </p>
+    """, unsafe_allow_html=True)
     
+    # Espacement entre les sections
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    
+    # Logos et liens des plateformes avec encadrement uniforme
+    col1, col2, col3 = st.columns([1, 1, 1])
+
     with col1:
-        booking_logo = "booking_logo.png"  # Chemin vers le logo de Booking
-        st.image(booking_logo, width=100)
-        st.markdown("<a href='https://account.booking.com/auth/login' target='_blank'>Connectez-vous à Booking</a>", unsafe_allow_html=True)
-    
+        with st.container():
+            st.markdown("<div style='border: 1px solid #ddd; padding: 10px; text-align: center;'>", unsafe_allow_html=True)
+            booking_logo = "booking_logo.png"
+            st.image(booking_logo, width=100)
+            st.markdown("<a href='https://account.booking.com/auth/login' target='_blank'>Connectez-vous à Booking</a>", unsafe_allow_html=True)
+            st.markdown("</div>", unsafe_allow_html=True)
+
     with col2:
-        airbnb_logo = "airbnb_logo.png"  # Chemin vers le logo d'Airbnb
-        st.image(airbnb_logo, width=100)
-        st.markdown("<a href='https://www.airbnb.fr/login' target='_blank'>Connectez-vous à Airbnb</a>", unsafe_allow_html=True)
-    
+        with st.container():
+            st.markdown("<div style='border: 1px solid #ddd; padding: 10px; text-align: center;'>", unsafe_allow_html=True)
+            airbnb_logo = "airbnb_logo.png"
+            st.image(airbnb_logo, width=100)
+            st.markdown("<a href='https://www.airbnb.fr/login' target='_blank'>Connectez-vous à Airbnb</a>", unsafe_allow_html=True)
+            st.markdown("</div>", unsafe_allow_html=True)
+
     with col3:
-        abritel_logo = "abritel_logo.png"  # Chemin vers le logo d'Abritel
-        st.image(abritel_logo, width=100)
-        st.markdown("<a href='https://www.abritel.fr/login' target='_blank'>Connectez-vous à Abritel</a>", unsafe_allow_html=True)
+        with st.container():
+            st.markdown("<div style='border: 1px solid #ddd; padding: 10px; text-align: center;'>", unsafe_allow_html=True)
+            abritel_logo = "abritel_logo.png"
+            st.image(abritel_logo, width=100)
+            st.markdown("<a href='https://www.abritel.fr/login' target='_blank'>Connectez-vous à Abritel</a>", unsafe_allow_html=True)
+            st.markdown("</div>", unsafe_allow_html=True)
+
+    # Espacement après les logos
+    st.markdown("<br><br>", unsafe_allow_html=True)
+    
+    # Explication après les logos
+    st.markdown("""
+        <p style='text-align: center;'>
+        Une fois connecté à vos différents comptes, notre système synchronisera automatiquement 
+        toutes vos annonces et informations de location sur ces plateformes afin que vous puissiez 
+        tout gérer à partir de votre tableau de bord Fifiloc.
+        </p>
+    """, unsafe_allow_html=True)
     
     # Bouton pour continuer
     if st.button("Continuer"):
@@ -274,7 +306,6 @@ def page00():
 
     # Ajout de la mention des droits d'auteur
     st.markdown("Droits d'auteur réservés, [Nowai](https://now-ai.fr/)", unsafe_allow_html=True)
-
 
 
 ###################################################################### PAGE 1  #########################################################
