@@ -955,14 +955,12 @@ def page5():
 
 # --- NAVIGATION --- #
 def main():
-    # Utilisation de l'état de session pour suivre la page actuelle
-    if 'page' not in st.session_state:
-        st.session_state.page = "connexion"
+    # Utilisation de l'état de session pour suivre la connexion
+    if 'connexion_reussie' not in st.session_state:
+        st.session_state.connexion_reussie = False
 
-    if st.session_state.page == "connexion":
-        page0()  # Afficher la page de connexion
-    elif st.session_state.page == "page00":
-        page00()  # Afficher la page de synchronisation des annonces
+    if not st.session_state.connexion_reussie:
+        page0()  # Forcer l'affichage de la page de connexion
     else:
         st.sidebar.title("Menu")
         page = st.sidebar.selectbox("Sélectionnez une page", [
