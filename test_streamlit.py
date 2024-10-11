@@ -259,7 +259,10 @@ def page00():
         tout gérer à partir de votre tableau de bord Fifiloc.
     """, unsafe_allow_html=True)
     
+    # Espacement entre les sections
+    st.markdown("<br><br>", unsafe_allow_html=True)
 
+    
     # Ajout des icônes des réseaux sociaux
     col1, col2, col3, col4, col5 = st.columns(5)
     
