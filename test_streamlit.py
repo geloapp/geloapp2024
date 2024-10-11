@@ -772,20 +772,20 @@ def page4():
             kpi_col1, kpi_col2, kpi_col3 = st.columns(3)
             with kpi_col1:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #ffffff; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='border-radius: 10px; background-color: #011e10; padding: 15px; text-align: center;'>"
+                    f"<p style='font-size:12px; color:white; font-weight:bold;'>Revenus totaux: {total_revenus:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col2:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #d0a9a9; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='border-radius: 10px; background-color: #a86903; padding: 15px; text-align: center;'>"
+                    f"<p style='font-size:12px; color:white; font-weight:bold;'>Charges totales: {total_charges:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
             with kpi_col3:
                 st.markdown(
-                    f"<div style='border-radius: 10px; background-color: #d7757a; padding: 20px; text-align: center;'>"
-                    f"<p style='font-size:15px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
+                    f"<div style='border-radius: 10px; background-color: #000234; padding: 15px; text-align: center;'>"
+                    f"<p style='font-size:12px; color:white; font-weight:bold;'>Solde total: {total_solde:.2f} € sur {total_mois} mois</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
@@ -831,7 +831,7 @@ def page4():
             fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
             with fiscal_col1:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #471100; padding: 10px; height: 100px; width: 100px; text-align: center;'>"
+                    f"<div style='border-radius: 50%; background-color: #f9e3e3; padding: 10px; height: 120px; width: 120px; text-align: center;'>"
                     f"<p style='font-size:10px; color: white; font-weight:bold;'>Revenus totaux</p>"
                     f"<p style='font-size:10px; color: white;'>{total_revenus_fiscal:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
@@ -839,7 +839,7 @@ def page4():
 
             with fiscal_col2:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #e03a06; padding: 10px; height: 100px; width: 100px; text-align: center;'>"
+                    f"<div style='border-radius: 50%; background-color: #d7757a; padding: 10px; height: 120px; width: 120px; text-align: center;'>"
                     f"<p style='font-size:10px; color: white; font-weight:bold;'>Charges totales</p>"
                     f"<p style='font-size:10px; color: white;'>{total_charges_fiscal:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
@@ -847,7 +847,7 @@ def page4():
 
             with fiscal_col3:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #8f3316; padding: 10px; height: 100px; width: 100px; text-align: center;'>"
+                    f"<div style='border-radius: 50%; background-color: #d0a9a9; padding: 10px; height: 120px; width: 120px; text-align: center;'>"
                     f"<p style='font-size:10px; color: white; font-weight:bold;'>Revenu imposable</p>"
                     f"<p style='font-size:10px; color: white;'>{revenu_imposable:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
