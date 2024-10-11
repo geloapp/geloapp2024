@@ -832,16 +832,16 @@ def page4():
             with fiscal_col1:
                 st.markdown(
                     f"<div style='border-radius: 50%; background-color: #d7757a; padding: 10px; height: 155px; width: 155px; display: flex; align-items: center; justify-content: center;'>"
-                    f"<p style='font-size:18px; color: white; font-weight:bold; text-align: center;'>Revenus totaux</p>"
-                    f"<p style='font-size:18px; color: white; text-align: center;'>{total_revenus_fiscal:.2f} €</p>"
+                    f"<p style='font-size:18px; color: white; font-weight:bold; text-align: center;'>Revenus totaux : {total_revenus_fiscal:.2f}</p>"
+                    #f"<p style='font-size:18px; color: white; text-align: center;'>{total_revenus_fiscal:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
             with fiscal_col2:
                 st.markdown(
                     f"<div style='border-radius: 50%; background-color: #d0a9a9; padding: 10px; height: 155px; width: 155px; display: flex; align-items: center; justify-content: center;'>"
-                    f"<p style='font-size:18px; color: white; font-weight:bold; text-align: center;'>Charges totales</p>"
-                    f"<p style='font-size:18px; color: white; text-align: center;'>{total_charges_fiscal:.2f} €</p>"
+                    f"<p style='font-size:18px; color: white; font-weight:bold; text-align: center;'>Charges totales : {total_charges_fiscal:.2f}</p>"
+                    #f"<p style='font-size:18px; color: white; text-align: center;'>{total_charges_fiscal:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
