@@ -254,16 +254,11 @@ def page00():
     
     # Explication après les logos
     st.markdown("""
-        <p style='text-align: center;'>
-        Une fois connecté à vos différents comptes, notre système synchronisera automatiquement 
+        Une fois connecté(e) à vos différents comptes, notre système synchronisera automatiquement 
         toutes vos annonces et informations de location sur ces plateformes afin que vous puissiez 
         tout gérer à partir de votre tableau de bord Fifiloc.
-        </p>
     """, unsafe_allow_html=True)
     
-    # Bouton pour continuer
-    if st.button("Continuer"):
-        st.session_state.page = "menu"
 
     # Ajout des icônes des réseaux sociaux
     col1, col2, col3, col4, col5 = st.columns(5)
