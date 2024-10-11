@@ -244,6 +244,36 @@ def page00():
     if st.button("Continuer"):
         st.session_state.page = "menu"
 
+    # Ajout des icônes des réseaux sociaux
+    col1, col2, col3, col4, col5 = st.columns(5)
+    
+    with col1:
+        linkedin_logo = "linkedin_logo.png"
+        st.image(linkedin_logo, width=30)
+        st.markdown("[Suivez-nous sur LinkedIn](https://www.linkedin.com)", unsafe_allow_html=True)
+    
+    with col2:
+        twitter_logo = "twitter_logo.png"
+        st.image(twitter_logo, width=30)
+        st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
+    
+    with col3:
+        facebook_logo = "facebook_logo.png"
+        st.image(facebook_logo, width=30)
+        st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
+    
+    with col4:
+        instagramm_logo = "instagramm_logo.jpeg"
+        st.image(instagramm_logo, width=30)
+        st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
+    
+    with col5:
+        tiktok_logo = "tiktok_logo.png"
+        st.image(tiktok_logo, width=30)
+        st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
+
+    # Ajout de la mention des droits d'auteur
+    st.markdown("Droits d'auteur réservés, [Nowai](https://now-ai.fr/)", unsafe_allow_html=True)
 
 
 
@@ -964,13 +994,16 @@ def main():
     else:
         st.sidebar.title("Menu")
         page = st.sidebar.selectbox("Sélectionnez une page", [
+            "Synchronisation de vos biens",
             "Suivi de trésorerie", 
             "Formulaires Fiscaux", 
             "Formulaires Fiscaux/type de location", 
             "Bilan financier et fiscal", 
             "Bon à savoir"])
         
-        if page == "Suivi de trésorerie":
+        if page == "Synchronisation de vos biens":
+            page00()
+        elif page == "Formulaires Fiscaux":
             page1()
         elif page == "Formulaires Fiscaux":
             page2()
