@@ -848,8 +848,8 @@ def page4():
             with fiscal_col3:
                 st.markdown(
                     f"<div style='border-radius: 50%; background-color: #d7757a; padding: 10px; height: 155px; width: 155px; display: flex; align-items: center; justify-content: center;'>"
-                    f"<p style='font-size:18px; color: white; font-weight:bold; text-align: center;'>Revenu imposable</p>"
-                    f"<p style='font-size:18px; color: white; text-align: center;'>{revenu_imposable:.2f} €</p>"
+                    f"<p style='font-size:18px; color: white; font-weight:bold; text-align: center;'>Revenu imposable : {revenu_imposable:.2f} €</p>"
+                    #f"<p style='font-size:18px; color: white; text-align: center;'>{revenu_imposable:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
