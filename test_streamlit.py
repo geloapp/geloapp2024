@@ -910,27 +910,31 @@ def page5():
 
 # --- NAVIGATION --- #
 def main():
-    st.sidebar.title("Menu")
-    page = st.sidebar.selectbox("Sélectionnez une page", [
-     "Page de connexion",
-     "Suivi de trésorerie", 
-     "Formulaires Fiscaux", 
-     "Formulaires Fiscaux/type de location", 
-     "Bilan financier et fiscal", 
-     "Bon à savoir"])
-    
-    if page == "Page de donnexion":
-        page0()
-    if page == "Suivi de trésorerie":
-        page1()
-    elif page == "Formulaires Fiscaux":
-        page2()
-    elif page == "Formulaires Fiscaux/type de location":
-        page3()
-    elif page == "Bilan financier et fiscal":
-        page4()
-    elif page == "Bon à savoir":
-        page5()
+    # Utilisation de l'état de session pour suivre la connexion
+    if 'connexion_reussie' not in st.session_state:
+        st.session_state.connexion_reussie = False
+
+    if not st.session_state.connexion_reussie:
+        page0()  # Forcer l'affichage de la page de connexion
+    else:
+        st.sidebar.title("Menu")
+        page = st.sidebar.selectbox("Sélectionnez une page", [
+            "Suivi de trésorerie", 
+            "Formulaires Fiscaux", 
+            "Formulaires Fiscaux/type de location", 
+            "Bilan financier et fiscal", 
+            "Bon à savoir"])
+        
+        if page == "Suivi de trésorerie":
+            page1()
+        elif page == "Formulaires Fiscaux":
+            page2()
+        elif page == "Formulaires Fiscaux/type de location":
+            page3()
+        elif page == "Bilan financier et fiscal":
+            page4()
+        elif page == "Bon à savoir":
+            page5()
 
 if __name__ == "__main__":
     main()
