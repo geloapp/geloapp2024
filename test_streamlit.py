@@ -223,11 +223,9 @@ def page00():
     
     # Explication avant les logos
     st.markdown("""
-        <p style='text-align: center;'>
         Afin de centraliser et gérer facilement toutes vos annonces de locations immobilières, 
         nous vous recommandons de connecter vos comptes de gestion des plateformes suivantes. 
         Si vous avez déjà des comptes actifs sur ces sites, connectez-vous pour synchroniser vos informations dans un seul et même endroit.
-        </p>
     """, unsafe_allow_html=True)
     
     # Espacement entre les sections
