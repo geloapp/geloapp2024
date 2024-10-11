@@ -142,6 +142,35 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
     else:
         st.error("Erreur lors de l'import des données d'annonces.")
         return None
+
+# --- FONCTIONS --- #
+
+
+# --- PAGE 0 : CONNEXION --- #
+def page0():
+    st.markdown("<h1 style='text-align: center;'>Connexion</h1>", unsafe_allow_html=True)
+    
+    # Champ Identifiant
+    identifiant = st.text_input("Identifiant", value="", placeholder="Entrez votre identifiant")
+    
+    # Champ Mot de passe
+    mot_de_passe = st.text_input("Mot de passe", type="password", placeholder="Entrez votre mot de passe")
+    
+    # Boutons Connexion et Inscription
+    col1, col2 = st.columns(2)
+    
+    with col1:
+        if st.button("Se connecter"):
+            # Logic pour la connexion (à implémenter)
+            st.success(f"Bienvenue {identifiant}!")
+    
+    with col2:
+        if st.button("S'inscrire"):
+            # Logic pour l'inscription (à implémenter)
+            st.info("Redirection vers la page d'inscription.")
+    
+    # Message d'accueil ou d'erreur selon la logique de connexion (à implémenter)
+    st.markdown("<p style='text-align: center;'>Veuillez vous connecter ou créer un compte pour accéder aux fonctionnalités.</p>", unsafe_allow_html=True)
     col1, col2, col3, col4, col5 = st.columns(5)
     
     with col1:
@@ -172,35 +201,6 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     # st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - https://now-ai.fr/</p>", unsafe_allow_html=True)
     st.markdown(" Droits d'auteur réservés, [Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
-
-# --- FONCTIONS --- #
-
-
-# --- PAGE 0 : CONNEXION --- #
-def page0():
-    st.markdown("<h1 style='text-align: center;'>Connexion</h1>", unsafe_allow_html=True)
-    
-    # Champ Identifiant
-    identifiant = st.text_input("Identifiant", value="", placeholder="Entrez votre identifiant")
-    
-    # Champ Mot de passe
-    mot_de_passe = st.text_input("Mot de passe", type="password", placeholder="Entrez votre mot de passe")
-    
-    # Boutons Connexion et Inscription
-    col1, col2 = st.columns(2)
-    
-    with col1:
-        if st.button("Se connecter"):
-            # Logic pour la connexion (à implémenter)
-            st.success(f"Bienvenue {identifiant}!")
-    
-    with col2:
-        if st.button("S'inscrire"):
-            # Logic pour l'inscription (à implémenter)
-            st.info("Redirection vers la page d'inscription.")
-    
-    # Message d'accueil ou d'erreur selon la logique de connexion (à implémenter)
-    st.markdown("<p style='text-align: center;'>Veuillez vous connecter ou créer un compte pour accéder aux fonctionnalités.</p>", unsafe_allow_html=True)
 
 # -- PAGE1 : ANALYSE DES REVENUS--- #
 def page1():
