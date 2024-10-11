@@ -831,25 +831,25 @@ def page4():
             fiscal_col1, fiscal_col2, fiscal_col3 = st.columns(3)
             with fiscal_col1:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #f9e3e3; padding: 10px; height: 140px; width: 140px; display: flex; align-items: center; justify-content: center;'>"
-                    f"<p style='font-size:12px; color: white; font-weight:bold; text-align: center;'>Revenus totaux</p>"
-                    f"<p style='font-size:12px; color: white; text-align: center;'>{total_revenus_fiscal:.2f} €</p>"
+                    f"<div style='border-radius: 50%; background-color: #d7757a; padding: 10px; height: 150px; width: 150px; display: flex; align-items: center; justify-content: center;'>"
+                    f"<p style='font-size:15px; color: white; font-weight:bold; text-align: center;'>Revenus totaux</p>"
+                    f"<p style='font-size:15px; color: white; text-align: center;'>{total_revenus_fiscal:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
             with fiscal_col2:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #d7757a; padding: 10px; height: 140px; width: 140px; display: flex; align-items: center; justify-content: center;'>"
-                    f"<p style='font-size:12px; color: white; font-weight:bold; text-align: center;'>Charges totales</p>"
-                    f"<p style='font-size:12px; color: white; text-align: center;'>{total_charges_fiscal:.2f} €</p>"
+                    f"<div style='border-radius: 50%; background-color: #d0a9a9; padding: 10px; height: 150px; width: 150px; display: flex; align-items: center; justify-content: center;'>"
+                    f"<p style='font-size:15px; color: white; font-weight:bold; text-align: center;'>Charges totales</p>"
+                    f"<p style='font-size:15px; color: white; text-align: center;'>{total_charges_fiscal:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
             with fiscal_col3:
                 st.markdown(
-                    f"<div style='border-radius: 50%; background-color: #d0a9a9; padding: 10px; height: 140px; width: 140px; display: flex; align-items: center; justify-content: center;'>"
-                    f"<p style='font-size:12px; color: white; font-weight:bold; text-align: center;'>Revenu imposable</p>"
-                    f"<p style='font-size:12px; color: white; text-align: center;'>{revenu_imposable:.2f} €</p>"
+                    f"<div style='border-radius: 50%; background-color: #d7757a; padding: 10px; height: 150px; width: 150px; display: flex; align-items: center; justify-content: center;'>"
+                    f"<p style='font-size:15px; color: white; font-weight:bold; text-align: center;'>Revenu imposable</p>"
+                    f"<p style='font-size:15px; color: white; text-align: center;'>{revenu_imposable:.2f} €</p>"
                     f"</div>", unsafe_allow_html=True
                 )
 
