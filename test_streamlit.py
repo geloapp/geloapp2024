@@ -145,6 +145,7 @@ def concatenate_airbnb_booking_data(airbnb_data_rev, booking_data_rev):
 
 # --- FONCTIONS --- #
 
+###################################################################### PAGE 0  #########################################################
 
 # --- PAGE 0 : CONNEXION --- #
 def page0():
@@ -209,7 +210,44 @@ def page0():
     # Ajout de la mention des droits d'auteur
     st.markdown("Droits d'auteur réservés, [Nowai](https://now-ai.fr/)", unsafe_allow_html=True)
 
+###################################################################### PAGE 00  #########################################################
 
+# --- PAGE 00 : SYNCHRONISATION DES ANNONCES --- #
+def page00():
+    # Ajouter le logo de Fifiloc
+    logo1 = 'final_logo_fifiloc_#222.png'
+    st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
+    
+    # Message de connexion pour synchronisation
+    st.markdown("<h2 style='text-align: center;'>Synchronisation des annonces</h2>", unsafe_allow_html=True)
+    st.markdown("<p style='text-align: center;'>Veuillez vous connecter à vos comptes pour synchroniser vos annonces avec les plateformes suivantes :</p>", unsafe_allow_html=True)
+    
+    # Logos et liens de plateformes
+    col1, col2, col3 = st.columns(3)
+    
+    with col1:
+        booking_logo = "booking_logo.png"  # Chemin vers le logo de Booking
+        st.image(booking_logo, width=100)
+        st.markdown("<a href='https://account.booking.com/auth/login' target='_blank'>Connectez-vous à Booking</a>", unsafe_allow_html=True)
+    
+    with col2:
+        airbnb_logo = "airbnb_logo.png"  # Chemin vers le logo d'Airbnb
+        st.image(airbnb_logo, width=100)
+        st.markdown("<a href='https://www.airbnb.fr/login' target='_blank'>Connectez-vous à Airbnb</a>", unsafe_allow_html=True)
+    
+    with col3:
+        abritel_logo = "abritel_logo.png"  # Chemin vers le logo d'Abritel
+        st.image(abritel_logo, width=100)
+        st.markdown("<a href='https://www.abritel.fr/login' target='_blank'>Connectez-vous à Abritel</a>", unsafe_allow_html=True)
+    
+    # Bouton pour continuer
+    if st.button("Continuer"):
+        st.session_state.page = "menu"
+
+
+
+
+###################################################################### PAGE 1  #########################################################
 # -- PAGE1 : ANALYSE DES REVENUS--- #
 def page1():
     # Ajouter le logo de Fifiloc
@@ -917,12 +955,16 @@ def page5():
 
 # --- NAVIGATION --- #
 def main():
-    # Utilisation de l'état de session pour suivre la connexion
+    # Utilisation de l'état de session pour suivre la connexion et la page actuelle
     if 'connexion_reussie' not in st.session_state:
         st.session_state.connexion_reussie = False
+    if 'page' not in st.session_state:
+        st.session_state.page = "connexion"
 
-    if not st.session_state.connexion_reussie:
-        page0()  # Forcer l'affichage de la page de connexion
+    if st.session_state.page == "connexion":
+        page0()  # Afficher la page de connexion
+    elif st.session_state.page == "page00":
+        page00()  # Afficher la page de synchronisation des annonces
     else:
         st.sidebar.title("Menu")
         page = st.sidebar.selectbox("Sélectionnez une page", [
