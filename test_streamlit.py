@@ -1016,16 +1016,16 @@ def main():
     else:
         st.sidebar.title("Menu")
         page = st.sidebar.selectbox("Sélectionnez une page", [
-            "Synchronisation de vos biens",
+            "Synchronisation des annonces",
             "Suivi de trésorerie", 
             "Formulaires Fiscaux", 
             "Formulaires Fiscaux/type de location", 
             "Bilan financier et fiscal", 
             "Bon à savoir"])
         
-        if page == "Synchronisation de vos biens":
+        if page == "Synchronisation des annonces":
             page00()
-        elif page == "Formulaires Fiscaux":
+        elif page == "Suivi de trésorerie":
             page1()
         elif page == "Formulaires Fiscaux":
             page2()
