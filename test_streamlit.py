@@ -471,25 +471,25 @@ def page2():
 
     with kpi_col1:
         st.markdown(
-            f"<div style='border-radius: 50%; background-color: #011e10; padding: 50px; height: 200px; width: 200px; text-align: center; margin: auto;'>"
-            f"<h4 style='color: white; font-size: 22px; margin: 0;'>Total des Revenus</h4>"
-            f"<h3 style='color: white; font-size: 22px;'>{total_revenus:.2f} €</h3>"  # Uniformiser la taille de la police
+            f"<div style='border-radius: 50%; background-color: #011e10; padding: 30px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
+            f"<h4 style='color: white; font-size: 16px; margin: 0;'>Total des Revenus</h4>"
+            f"<h3 style='color: white; font-size: 18px;'>{total_revenus:.2f} €</h3>"  # Taille de la police réduite
             f"</div>", unsafe_allow_html=True
         )
 
     with kpi_col2:
         st.markdown(
-            f"<div style='border-radius: 50%; background-color: #a86903; padding: 50px; height: 200px; width: 200px; text-align: center; margin: auto;'>"
-            f"<h4 style='color: white; font-size: 22px; margin: 0;'>Total des Charges</h4>"
-            f"<h3 style='color: white; font-size: 22px;'>{total_charges:.2f} €</h3>"  # Uniformiser la taille de la police
+            f"<div style='border-radius: 50%; background-color: #a86903; padding: 30px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
+            f"<h4 style='color: white; font-size: 16px; margin: 0;'>Total des Charges</h4>"
+            f"<h3 style='color: white; font-size: 18px;'>{total_charges:.2f} €</h3>"  # Taille de la police réduite
             f"</div>", unsafe_allow_html=True
         )
 
     with kpi_col3:
         st.markdown(
-            f"<div style='border-radius: 50%; background-color: #000234; padding: 50px; height: 200px; width: 200px; text-align: center; margin: auto;'>"
-            f"<h4 style='color: white; font-size: 22px; margin: 0;'>Revenu Imposable</h4>"
-            f"<h3 style='color: white; font-size: 22px;'>{revenu_imposable:.2f} €</h3>"  # Uniformiser la taille de la police
+            f"<div style='border-radius: 50%; background-color: #000234; padding: 30px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
+            f"<h4 style='color: white; font-size: 16px; margin: 0;'>Revenu Imposable</h4>"
+            f"<h3 style='color: white; font-size: 18px;'>{revenu_imposable:.2f} €</h3>"  # Taille de la police réduite
             f"</div>", unsafe_allow_html=True
         )
 
