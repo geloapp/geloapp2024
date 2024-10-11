@@ -161,46 +161,47 @@ def page0():
     
     with col1:
         if st.button("Se connecter"):
-            # Logic pour la connexion (à implémenter)
+            # Marquer la connexion réussie dans l'état de session
+            st.session_state.connexion_reussie = True
             st.success(f"Bienvenue {identifiant}!")
     
     with col2:
         if st.button("S'inscrire"):
-            # Logic pour l'inscription (à implémenter)
             st.info("Redirection vers la page d'inscription.")
-    
-    # Message d'accueil ou d'erreur selon la logique de connexion (à implémenter)
+
     st.markdown("<p style='text-align: center;'>Veuillez vous connecter ou créer un compte pour accéder aux fonctionnalités.</p>", unsafe_allow_html=True)
+    
+    # Ajout des icônes des réseaux sociaux
     col1, col2, col3, col4, col5 = st.columns(5)
     
     with col1:
-        linkedin_logo = "linkedin_logo.png"  
+        linkedin_logo = "linkedin_logo.png"
         st.image(linkedin_logo, width=30)
         st.markdown("[Suivez-nous sur LinkedIn](https://www.linkedin.com)", unsafe_allow_html=True)
     
     with col2:
-        twitter_logo = "twitter_logo.png"  
+        twitter_logo = "twitter_logo.png"
         st.image(twitter_logo, width=30)
         st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
     
     with col3:
-        facebook_logo = "facebook_logo.png"  
+        facebook_logo = "facebook_logo.png"
         st.image(facebook_logo, width=30)
         st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
     
     with col4:
-        instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
+        instagramm_logo = "instagramm_logo.jpeg"
         st.image(instagramm_logo, width=30)
         st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
     
     with col5:
-        tiktok_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        tiktok_logo = "tiktok_logo.png"
         st.image(tiktok_logo, width=30)
         st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
-    
-    # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
-    # st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - https://now-ai.fr/</p>", unsafe_allow_html=True)
-    st.markdown(" Droits d'auteur réservés, [Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
+
+    # Ajout de la mention des droits d'auteur
+    st.markdown("Droits d'auteur réservés, [Nowai](https://now-ai.fr/)", unsafe_allow_html=True)
+
 
 # -- PAGE1 : ANALYSE DES REVENUS--- #
 def page1():
