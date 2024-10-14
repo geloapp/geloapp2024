@@ -430,20 +430,29 @@ def page1():
 
 
 ###################################################################################### PAGE 2 ###########################################################################################
-# --- PAGE 2 : FORMULAIRES DE CALCUL DU REVENU IMPOSABLE --- #
-def page2():
+
+#########################################################################################
+# --- PAGE 2 : FORMULAIRES DE CALCUL FISCAUX ET REVENUS IMPOSABLES (2042, 2044, Plus-values, Défiscalisation) --- #
+#########################################################################################
+
+def calcul_revenu_imposable():
     # Ajouter le logo de Fifiloc
     logo1 = 'final_logo_fifiloc_#222.png'
-    st.image(logo1, width=70)  # Ajustez le chemin et la taille selon vos besoins
+    st.image(logo1, width=70)
 
     st.markdown("<h1 style='font-size:24px;'>Revenus imposables (micro-bic ou réel)</h1>", unsafe_allow_html=True)
-    
-    # Description de la page
+
+    # Texte explicatif
     st.markdown(
         """<p>
-        Découvrez facilement quel régime fiscal vous convient le mieux et estimez votre revenu imposable pour vos locations saisonnières. 
-        Que vous optiez pour le régime <strong>Micro-BIC</strong> ou le <strong>Régime Réel</strong>, notre outil calcule automatiquement votre revenu imposable en tenant compte des spécificités de chaque régime.
-        </p>""", 
+        Dans le cadre de vos locations saisonnières meublées, vous devez déclarer vos revenus sous le régime des 
+        <strong>Bénéfices Industriels et Commerciaux (BIC)</strong>. Deux régimes fiscaux sont disponibles :
+        <ul>
+        <li><strong>Micro-BIC :</strong> Ce régime est simplifié et s'applique si vos recettes annuelles ne dépassent pas un certain seuil (77 700 € en 2024). Un abattement de 50 % est automatiquement appliqué à vos recettes, mais vous ne pouvez pas déduire vos charges.</li>
+        <li><strong>Régime Réel :</strong> Ce régime vous permet de déduire toutes vos charges (frais d'entretien, intérêts d'emprunt, etc.), mais nécessite de tenir une comptabilité plus détaillée.</li>
+        </ul>
+        Choisissez le régime qui vous correspond et calculez votre revenu imposable pour vos locations saisonnières.
+        </p>""",
         unsafe_allow_html=True
     )
 
@@ -473,7 +482,7 @@ def page2():
         st.markdown(
             f"<div style='border-radius: 50%; background-color: #011e10; padding: 30px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
             f"<h4 style='color: white; font-size: 16px; margin: 0;'>Total des Revenus</h4>"
-            f"<h3 style='color: white; font-size: 18px;'>{total_revenus:.2f} €</h3>"  # Taille de la police réduite
+            f"<h3 style='color: white; font-size: 18px;'>{total_revenus:.2f} €</h3>"
             f"</div>", unsafe_allow_html=True
         )
 
@@ -481,7 +490,7 @@ def page2():
         st.markdown(
             f"<div style='border-radius: 50%; background-color: #a86903; padding: 30px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
             f"<h4 style='color: white; font-size: 16px; margin: 0;'>Total des Charges</h4>"
-            f"<h3 style='color: white; font-size: 18px;'>{total_charges:.2f} €</h3>"  # Taille de la police réduite
+            f"<h3 style='color: white; font-size: 18px;'>{total_charges:.2f} €</h3>"
             f"</div>", unsafe_allow_html=True
         )
 
@@ -489,21 +498,17 @@ def page2():
         st.markdown(
             f"<div style='border-radius: 50%; background-color: #000234; padding: 30px; height: 150px; width: 150px; text-align: center; margin: auto;'>"
             f"<h4 style='color: white; font-size: 16px; margin: 0;'>Revenu Imposable</h4>"
-            f"<h3 style='color: white; font-size: 18px;'>{revenu_imposable:.2f} €</h3>"  # Taille de la police réduite
+            f"<h3 style='color: white; font-size: 18px;'>{revenu_imposable:.2f} €</h3>"
             f"</div>", unsafe_allow_html=True
         )
 
-    # Ajouter un espace entre les graphiques circulaires et le texte d'alerte
-    st.markdown("<br><br>", unsafe_allow_html=True)  # Ajout de marges
-
-    # Affichage du message sur le revenu imposable
+    # Message d'alerte sur le revenu imposable
     if revenu_imposable < 0:
         st.warning("Votre revenu imposable est négatif. Vous n'aurez pas d'impôt à payer.")
     else:
         st.success("Votre revenu imposable est positif. Vous aurez des impôts à payer.")
 
-
-    # Section du formulaire fiscal 2042
+    # Formulaire 2042
     st.markdown("<h3 style='font-size:18px;'>Formulaire 2042</h3>", unsafe_allow_html=True)
     st.markdown(f"<p style='color: darkorange;'>Case 4BE (Micro-BIC) ou 4BB (Régime réel) : {revenu_imposable:.2f} €</p>", unsafe_allow_html=True)
 
@@ -512,7 +517,150 @@ def page2():
     revenu_imposable_final = revenu_imposable - reduction_impot
     st.markdown(f"<p style='color: lightcoral;'>Revenu imposable après réductions d'impôt : {revenu_imposable_final:.2f} €</p>", unsafe_allow_html=True)
 
-    # --- Ajout des icônes des réseaux sociaux en bas de page ---
+    st.markdown("<hr>", unsafe_allow_html=True)  # Ligne séparatrice
+
+    col1, col2, col3, col4, col5 = st.columns(5)
+    
+    with col1:
+        linkedin_logo = "linkedin_logo.png"  
+        st.image(linkedin_logo, width=30)
+        st.markdown("[Suivez-nous sur LinkedIn](https://www.linkedin.com)", unsafe_allow_html=True)
+    
+    with col2:
+        twitter_logo = "twitter_logo.png"  
+        st.image(twitter_logo, width=30)
+        st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
+    
+    with col3:
+        facebook_logo = "facebook_logo.png"  
+        st.image(facebook_logo, width=30)
+        st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
+    
+    with col4:
+        instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
+        st.image(instagramm_logo, width=30)
+        st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
+    
+    with col5:
+        tiktok_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(tiktok_logo, width=30)
+        st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
+    
+    # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
+    # st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - https://now-ai.fr/</p>", unsafe_allow_html=True)
+    st.markdown(" Droits d'auteur réservés, [Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
+
+
+
+# --- CALCUL DE PLUS-VALUES IMMOBILIÈRES --- #
+def calcul_plus_value():
+    st.markdown("<h3 style='font-size:18px;'>Plus-Values Immobilières</h3>", unsafe_allow_html=True)
+
+    # Texte explicatif
+    st.markdown(
+        """<p>
+        La plus-value immobilière est le gain réalisé lorsque vous vendez un bien immobilier à un prix supérieur à son prix d'achat. 
+        En France, la plus-value immobilière est généralement soumise à l'impôt, sauf exceptions (par exemple, si c'est votre résidence principale). 
+        Le montant de l'impôt dépend de plusieurs facteurs comme la durée de détention du bien et les éventuels abattements. 
+        Cet outil vous permet de calculer la plus-value brute et la plus-value imposable après abattement en fonction du nombre d'années de détention.
+        </p>""",
+        unsafe_allow_html=True
+    )
+
+    prix_acquisition = st.number_input("Prix d'acquisition du bien (€)", min_value=0.0, format="%.2f")
+    prix_vente = st.number_input("Prix de vente du bien (€)", min_value=0.0, format="%.2f")
+    frais_acquisition = st.number_input("Frais d'acquisition (notaire, agences) (€)", min_value=0.0, format="%.2f")
+    travaux_realises = st.number_input("Montant des travaux réalisés (€)", min_value=0.0, format="%.2f")
+    duree_detention = st.number_input("Durée de détention (en années)", min_value=0)
+
+    # Calcul de la plus-value brute
+    plus_value_brute = (prix_vente - prix_acquisition) - frais_acquisition - travaux_realises
+
+    # Abattements en fonction de la durée de détention (exemple simplifié)
+    if duree_detention < 6:
+        abattement = 0
+    elif duree_detention < 22:
+        abattement = (duree_detention - 6) * 0.06
+    else:
+        abattement = 100
+
+    plus_value_imposable = plus_value_brute * (1 - abattement / 100)
+
+    st.markdown(f"<p style='color: darkorange;'>Plus-value brute : {plus_value_brute:.2f} €</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='color: darkorange;'>Abattement en fonction de la durée de détention : {abattement}%</p>", unsafe_allow_html=True)
+    st.markdown(f"<p style='color: darkorange;'>Plus-value imposable : {plus_value_imposable:.2f} €</p>", unsafe_allow_html=True)
+
+    # Alerte sur la plus-value
+    if plus_value_imposable <= 0:
+        st.warning("Aucune plus-value imposable.")
+    else:
+        st.success("Plus-value imposable. Des impôts seront dus.")
+    
+    st.markdown("<hr>", unsafe_allow_html=True)  # Ligne séparatrice
+
+    col1, col2, col3, col4, col5 = st.columns(5)
+    
+    with col1:
+        linkedin_logo = "linkedin_logo.png"  
+        st.image(linkedin_logo, width=30)
+        st.markdown("[Suivez-nous sur LinkedIn](https://www.linkedin.com)", unsafe_allow_html=True)
+    
+    with col2:
+        twitter_logo = "twitter_logo.png"  
+        st.image(twitter_logo, width=30)
+        st.markdown("[Suivez-nous sur Twitter](https://www.twitter.com)", unsafe_allow_html=True)
+    
+    with col3:
+        facebook_logo = "facebook_logo.png"  
+        st.image(facebook_logo, width=30)
+        st.markdown("[Suivez-nous sur Facebook](https://www.facebook.com)", unsafe_allow_html=True)
+    
+    with col4:
+        instagramm_logo = "instagramm_logo.jpeg"  # Remplacer par le chemin correct du logo Twitter
+        st.image(instagramm_logo, width=30)
+        st.markdown("[Suivez-nous sur Instagram](https://www.instagram.com)", unsafe_allow_html=True)
+    
+    with col5:
+        tiktok_logo = "tiktok_logo.png"  # Remplacer par le chemin correct du logo Twitter
+        st.image(tiktok_logo, width=30)
+        st.markdown("[Suivez-nous sur TikTok](https://www.tiktok.com)", unsafe_allow_html=True)
+    
+    # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
+    # st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - https://now-ai.fr/</p>", unsafe_allow_html=True)
+    st.markdown(" Droits d'auteur réservés, [Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
+
+# --- SIMULATION DE DÉFISCALISATION --- #
+def simulation_defiscalisation():
+    st.markdown("<h3 style='font-size:18px;'>Simulation de Défiscalisation (Pinel, LMNP, etc.)</h3>", unsafe_allow_html=True)
+
+    # Texte explicatif
+    st.markdown(
+        """<p>
+        La défiscalisation permet de réduire vos impôts en investissant dans l'immobilier, sous certaines conditions. Voici quelques dispositifs de défiscalisation pour l'immobilier locatif :
+        <ul>
+        <li><strong>Loi Pinel :</strong> Un dispositif qui permet une réduction d'impôt pour l'achat de biens neufs à louer, avec un engagement de location sur 6, 9 ou 12 ans.</li>
+        <li><strong>LMNP (Loueur en Meublé Non Professionnel) :</strong> Ce régime permet de bénéficier d'une fiscalité avantageuse en amortissant une partie de l'investissement immobilier (murs et mobilier).</li>
+        <li><strong>Censi-Bouvard :</strong> Ce dispositif s'adresse aux investissements dans les résidences de services (étudiantes, seniors) et permet une réduction d'impôt de 11 % du montant de l'investissement.</li>
+        </ul>
+        Utilisez notre simulateur pour estimer la réduction d'impôt que vous pourriez obtenir en fonction de votre investissement et de la durée d'engagement.
+        </p>""",
+        unsafe_allow_html=True
+    )
+
+    dispositif = st.selectbox('Sélectionnez votre dispositif de défiscalisation', ['Loi Pinel', 'LMNP', 'Censi-Bouvard'])
+    montant_investissement = st.number_input("Montant de l'investissement immobilier (€)", min_value=0.0, format="%.2f")
+    duree_engagement = st.selectbox("Durée d'engagement (en années)", [6, 9, 12])
+
+    # Calcul de la réduction d'impôt (exemple simplifié)
+    if dispositif == 'Loi Pinel':
+        reduction_impot = montant_investissement * 0.12  # Exemple de réduction
+    elif dispositif == 'LMNP':
+        reduction_impot = montant_investissement * 0.10  # Exemple de réduction
+    else:  # Censi-Bouvard
+        reduction_impot = montant_investissement * 0.11  # Exemple de réduction
+
+    st.markdown(f"<p style='color: darkorange;'>Réduction d'impôt estimée : {reduction_impot:.2f} €</p>", unsafe_allow_html=True)
+
     st.markdown("<hr>", unsafe_allow_html=True)  # Ligne séparatrice
     
     col1, col2, col3, col4, col5 = st.columns(5)
@@ -545,6 +693,35 @@ def page2():
     # --- Ajout de la phrase "Droits d'auteur réservés, Nowai" en bas de page ---
     # st.markdown("<p style='text-align:center; font-size:15px;'>Droits d'auteur réservés, Nowai - https://now-ai.fr/</p>", unsafe_allow_html=True)
     st.markdown(" Droits d'auteur réservés, [Nowai](https://now-ai.fr/)",unsafe_allow_html=True)
+
+
+# --- PAGE PRINCIPALE DE LA PAGE 2 --- #
+def page2():
+    # Texte explicatif général
+    st.markdown(
+        """<p>
+        Bienvenue dans la section fiscale de FiFiLoc. Ici, vous trouverez des outils vous permettant de calculer vos revenus imposables, vos plus-values 
+        immobilières, et de simuler les effets de différents dispositifs de défiscalisation. Ces outils vous aideront à mieux comprendre les implications fiscales de vos investissements immobiliers locatifs.
+        </p>""", 
+        unsafe_allow_html=True
+    )
+
+    # Ajout des différentes sections de calculs fiscaux
+    st.sidebar.title("Menu Fiscalité")
+    page = st.sidebar.selectbox("Choisissez un formulaire ou un calcul", [
+        "Revenus imposables (Micro-BIC ou Réel)",
+        "Plus-values Immobilières",
+        "Simulation de Défiscalisation (Pinel, LMNP)"
+    ])
+
+    if page == "Revenus imposables (Micro-BIC ou Réel)":
+        calcul_revenu_imposable()
+    elif page == "Plus-values Immobilières":
+        calcul_plus_value()
+    elif page == "Simulation de Défiscalisation (Pinel, LMNP)":
+        simulation_defiscalisation()
+
+
     
 
 ###################################################################################### PAGE 3 ###########################################################################################    
